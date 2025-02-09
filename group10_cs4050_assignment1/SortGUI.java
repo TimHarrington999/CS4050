@@ -293,7 +293,7 @@ public class SortGUI {
 			});
 
 			//Creating an action listener for bubble sort button
-			imerge.addActionListener(new ActionListener() {
+			bubble.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the bubble sort method
 					sortArea.BubbleSort();
@@ -307,7 +307,7 @@ public class SortGUI {
 			});
 
 			//Creating an action listener for insertion sort button
-			imerge.addActionListener(new ActionListener() {
+			insertion.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the insertion sort method
 					sortArea.InsertionSort();
@@ -321,7 +321,7 @@ public class SortGUI {
 			});
 
 			//Creating an action listener for shell sort button
-			imerge.addActionListener(new ActionListener() {
+			shell.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the shell sort method
 					sortArea.ShellSort();
@@ -335,7 +335,7 @@ public class SortGUI {
 			});
 
 			//Creating an action listener for quick sort button
-			imerge.addActionListener(new ActionListener() {
+			quick.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the bubble sort method
 					sortArea.QuickSort();
@@ -349,7 +349,7 @@ public class SortGUI {
 			});
 
 			//Creating an action listener for radix sort button
-			imerge.addActionListener(new ActionListener() {
+			radix.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the radix sort method
 					sortArea.RadixSort();
