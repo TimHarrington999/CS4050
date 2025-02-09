@@ -72,7 +72,8 @@ public class SortShow extends JPanel {
 	}
 
 	//////////////////////////////////////////////////////////////////////
-		
+
+	// TODO: finish Selection Sort method
 	//The selectionSort method
 	public void SelectionSort()
 	{
@@ -88,7 +89,7 @@ public class SortShow extends JPanel {
 		//subtracting the end time with the start time
 	    SortGUI.selectionTime = end.getTime().getTime() - start.getTime().getTime();
 	}
-		
+
 	//this method gets the smallest element in the array of lines_lengths
 	public int getIndexOfSmallest(int first, int last)
 	{
@@ -99,7 +100,8 @@ public class SortShow extends JPanel {
 	}
 		
 	///////////////////////////////////////////////////////////////////////////////////
-		
+
+	// TODO: finish Recursive Merge Sort
 	//recursive merge sort method
 	public void R_MergeSort()
 	{
@@ -115,7 +117,7 @@ public class SortShow extends JPanel {
 	    SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
 			
 	}
-		
+
 	//recursive merge sort method
 	public void R_MergeSort(int first, int last)
 	{
@@ -136,7 +138,8 @@ public class SortShow extends JPanel {
 
 
 	//////////////////////////////////////////////////////////////////////////////////////////
-		
+
+	// TODO: Method is already given, but doesn't work?
 	//iterative merge sort method
 	public void I_MergeSort()
 	{
@@ -247,42 +250,97 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
+	// TODO: complete the Bubble Sort method
 	// bubble sort method
 	public void BubbleSort()
 	{
-		// TODO: complete bubble sort
+		//getting the date and time when the bubble sort starts
+		Calendar start = Calendar.getInstance();
+		//Using the bubble sort to lines_lengths sort the array
+
+		//You need to complete this part.
+
+		//getting the date and time when the bubble sort ends
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the bubble sort to execute
+		//subtracting the end time with the start time
+		SortGUI.bubbleTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	//////////////////////////////////////////////////////////////////////
 
+	// TODO: complete the Insertion Sort method
 	// insertion sort method
 	public void InsertionSort()
 	{
-		// TODO: complete insertion sort
+		//getting the date and time when the insertion sort starts
+		Calendar start = Calendar.getInstance();
+		//Using the insertion sort to lines_lengths sort the array
+
+		//You need to complete this part.
+
+		//getting the date and time when the insertion sort ends
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the insertion sort to execute
+		//subtracting the end time with the start time
+		SortGUI.insertionTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	//////////////////////////////////////////////////////////////////////
 
+	// TODO: complete the shell sort method
 	// shell sort method
 	public void ShellSort()
 	{
-		// TODO: complete shell sort
+		//getting the date and time when the shell sort starts
+		Calendar start = Calendar.getInstance();
+		//Using the shell sort to lines_lengths sort the array
+
+		//You need to complete this part.
+
+		//getting the date and time when the shell sort ends
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the shell sort to execute
+		//subtracting the end time with the start time
+		SortGUI.shellTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	//////////////////////////////////////////////////////////////////////
 
+	// TODO: complete the quick sort method
 	// quick sort method
 	public void QuickSort()
 	{
-		// TODO: complete quick sort
+		//getting the date and time when the quick sort starts
+		Calendar start = Calendar.getInstance();
+		//Using the quick sort to lines_lengths sort the array
+
+		//You need to complete this part.
+
+		//getting the date and time when the quick sort ends
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the quick sort to execute
+		//subtracting the end time with the start time
+		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	//////////////////////////////////////////////////////////////////////
 
+	// TODO: complete the Radix sort method
 	// radix sort method
 	public void RadixSort()
 	{
-		// TODO: complete radix sort
+		//getting the date and time when the radix sort starts
+		Calendar start = Calendar.getInstance();
+		//Using the radix sort to lines_lengths sort the array
+
+		//You need to complete this part.
+
+		//getting the date and time when the radix sort ends
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the radix sort to execute
+		//subtracting the end time with the start time
+		SortGUI.radixTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	//////////////////////////////////////////////////////////////////////
