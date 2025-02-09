@@ -137,7 +137,7 @@ public class SortGUI {
 			// quick sort time will be red
 			quick_time_taken.setForeground(Color.RED);
 			// radix sort time will be red
-			radix_time_label.setForeground(Color.RED);
+			radix_time_taken.setForeground(Color.RED);
 			//The selection button text will be the colour blue
 			selection.setForeground(Color.BLUE);
 			//The recursive merge button text will be the colour blue
@@ -183,7 +183,7 @@ public class SortGUI {
 			radio_button_selection_Panel.setBorder(new javax.swing.border.TitledBorder("Sort Algorithms"));
 
 			//A Panel to hold the time_Panel and set the GridLayout
-			JPanel time_Panel = new JPanel(new GridLayout(6, 1, 3, 3));
+			JPanel time_Panel = new JPanel(new GridLayout(4, 4, 3, 3));
 			//Adding the selection_time_label to the time_Panel
 			time_Panel.add(selection_time_label);
 			//Adding the selection_time_taken to the time_Panel
@@ -219,7 +219,7 @@ public class SortGUI {
 
 			//A Panel to hold the buttons_area_Panel and set the GridLayout
 			//This buttons_area_Panel will hold scrambleButton, radio_button_selection and the time_Panel
-			JPanel buttons_area_Panel = new JPanel(new GridLayout(5, 1, 5, 5));
+			JPanel buttons_area_Panel = new JPanel(new GridLayout(5, 2, 5, 5));
 			//adding scramble_button to the buttons_area_Panel
 			buttons_area_Panel.add(scramble_button);
 			//adding radio_button_selection_Panel to the buttons_area_Panel

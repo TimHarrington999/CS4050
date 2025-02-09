@@ -7,7 +7,9 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 //The class that has all the sorts in it
@@ -315,13 +317,44 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Using the quick sort to lines_lengths sort the array
 
-		//You need to complete this part.
+		rQuickSort(0, total_number_of_lines - 1);
 
 		//getting the date and time when the quick sort ends
 		Calendar end = Calendar.getInstance();
 		//getting the time it took for the quick sort to execute
 		//subtracting the end time with the start time
 		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+
+	public void rQuickSort(int first, int last) {
+
+		if (first > last) {
+			return;
+		}
+
+		int pivot = lines_lengths[last];
+		int left = first;
+		int right = last;
+
+		while (left < right) {
+			while (left < right && lines_lengths[left] <= pivot) {
+				left++;
+			}
+			while (left < right && lines_lengths[right] >= pivot) {
+				right--;
+			}
+			if (left < right) {
+				swap(left, right);
+			}
+		}
+
+		swap(left, last);
+
+		paintComponent(this.getGraphics());
+		delay(10);
+
+		rQuickSort(first, left - 1);
+		rQuickSort(left + 1, last);
 	}
 
 	//////////////////////////////////////////////////////////////////////
@@ -334,8 +367,37 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Using the radix sort to lines_lengths sort the array
 
-		//You need to complete this part.
+		//Create the buckets
+		ArrayList<Integer> zeroBucket = new ArrayList<>();
+		ArrayList<Integer> oneBucket = new ArrayList<>();
 
+		//Find the number of binary digits in the largest number
+		//Then, for each digit
+		for (int position = 0; position <= Integer.numberOfTrailingZeros(Integer.highestOneBit(total_number_of_lines)); position++) {
+			//Sort each number into a bucket depending on that digit while maintaining relative order
+			for (int index = 0; index < total_number_of_lines; index++) {
+				if ((lines_lengths[index] & (1 << position)) == 0) {
+					zeroBucket.add(lines_lengths[index]);
+				}
+				else {
+					oneBucket.add(lines_lengths[index]);
+				}
+			}
+			//Then empty the buckets
+			for (int index = 0; index < zeroBucket.size(); index++) {
+				lines_lengths[index] = zeroBucket.get(index);
+				paintComponent(this.getGraphics());
+				delay(10);
+			}
+			for (int index = 0; index < oneBucket.size(); index++) {
+				lines_lengths[index + zeroBucket.size()] = oneBucket.get(index);
+				paintComponent(this.getGraphics());
+				delay(10);
+			}
+			//And clear them for the next iteration
+			zeroBucket.clear();
+			oneBucket.clear();
+		}
 		//getting the date and time when the radix sort ends
 		Calendar end = Calendar.getInstance();
 		//getting the time it took for the radix sort to execute
