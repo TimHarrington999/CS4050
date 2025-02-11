@@ -105,37 +105,63 @@ public class SortShow extends JPanel {
 
 	// TODO: finish Recursive Merge Sort
 	//recursive merge sort method
-	public void R_MergeSort()
-	{
-		//getting the date and time when the recursive merge sort starts
+	public void R_MergeSort() {
 		Calendar start = Calendar.getInstance();
-		//assigning the size for the tempArray below
 
-		//You need to complete this part.
+		// Call the recursive merge sort method
+		R_MergeSort(0, total_number_of_lines - 1);
 
 		Calendar end = Calendar.getInstance();
-		//getting the time it took for the iterative merge sort to execute
-		//subtracting the end time with the start time
-	    SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
-			
+		SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
-	//recursive merge sort method
-	public void R_MergeSort(int first, int last)
-	{
-		if(first < last){
+	public void R_MergeSort(int first, int last) {
+		if (first < last) {
+			// Find the middle point to divide the array into two halves
+			int mid = (first + last) / 2;
 
-			//You need to complete this part.
+			// Recursively sort the first and second halves
+			R_MergeSort(first, mid);
+			R_MergeSort(mid + 1, last);
 
-			//Causing a delay for 10ms
-			//delay(10);
+			// Merge the sorted halves
+			R_Merge(first, mid, last);
 		}
 	}
+	private void R_Merge(int first, int mid, int last) {
+		// Create a temporary array to hold the merged result
+		int[] temp = new int[last - first + 1];
+		int i = first;       // Index for the first subarray
+		int j = mid + 1;     // Index for the second subarray
+		int k = 0;           // Index for the temporary array
 
-	//recursive merge sort method
-	public void R_Merge(int first, int mid, int last)
-	{
-			//You need to complete this part.
+		// Merge the two subarrays into the temporary array
+		while (i <= mid && j <= last) {
+			if (lines_lengths[i] <= lines_lengths[j]) {
+				temp[k++] = lines_lengths[i++];
+			} else {
+				temp[k++] = lines_lengths[j++];
+			}
+		}
+
+		// Copy remaining elements from the first subarray
+		while (i <= mid) {
+			temp[k++] = lines_lengths[i++];
+		}
+
+		// Copy remaining elements from the second subarray
+		while (j <= last) {
+			temp[k++] = lines_lengths[j++];
+		}
+
+		// Copy the merged elements back into the original array
+		for (i = first, k = 0; i <= last; i++, k++) {
+			lines_lengths[i] = temp[k];
+		}
+
+		// Update the GUI to visualize the merge step
+		paintComponent(this.getGraphics());
+		delay(10);
 	}
 
 
@@ -291,19 +317,42 @@ public class SortShow extends JPanel {
 	//////////////////////////////////////////////////////////////////////
 
 	// TODO: complete the shell sort method
+	// Helper function to ++ insert sort
+	private void incrementalInsertionSort(int first, int last, int space) {
+		int unsorted;
+		for (unsorted = first + space; unsorted <= last; unsorted += space) {
+			int current = lines_lengths[unsorted];
+			int index = unsorted - space;
+
+			// Shift elements spaced by others that are greater than current
+			while (index >= first && current < lines_lengths[index]) {
+				lines_lengths[index + space] = lines_lengths[index];
+				index -= space;
+
+				paintComponent(this.getGraphics());
+				delay(10);
+			}
+			lines_lengths[index + space] = current;
+		}
+	}
 	// shell sort method
-	public void ShellSort()
-	{
-		//getting the date and time when the shell sort starts
+	public void ShellSort() {
 		Calendar start = Calendar.getInstance();
-		//Using the shell sort to lines_lengths sort the array
+		int n = total_number_of_lines;
 
-		//You need to complete this part.
+		// Start with a large gap and reduce it
+		for (int space = n / 2; space > 0; space /= 2) {
+			// Sort each "space"-spaced subarray
+			for (int begin = 0; begin < space; begin++) {
+				incrementalInsertionSort(begin, total_number_of_lines - 1, space);
+			}
 
-		//getting the date and time when the shell sort ends
+			// Update GUI after each gap iteration
+			paintComponent(this.getGraphics());
+			delay(50);
+		}
+
 		Calendar end = Calendar.getInstance();
-		//getting the time it took for the shell sort to execute
-		//subtracting the end time with the start time
 		SortGUI.shellTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
@@ -404,6 +453,8 @@ public class SortShow extends JPanel {
 		//subtracting the end time with the start time
 		SortGUI.radixTime = end.getTime().getTime() - start.getTime().getTime();
 	}
+
+
 
 	//////////////////////////////////////////////////////////////////////
 		
