@@ -369,6 +369,8 @@ public class SortShow extends JPanel {
 			}
 			if (left < right) {
 				swap(left, right);
+				paintComponent(this.getGraphics());
+				delay(10);
 			}
 		}
 
