@@ -305,7 +305,7 @@ public class SortShow extends JPanel {
 
 			// Update GUI after each gap iteration
 			paintComponent(this.getGraphics());
-			delay(50);
+			delay(10);
 		}
 
 		Calendar end = Calendar.getInstance();
