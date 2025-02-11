@@ -292,19 +292,43 @@ public class SortShow extends JPanel {
 
 	// TODO: complete the shell sort method
 	// shell sort method
-	public void ShellSort()
-	{
-		//getting the date and time when the shell sort starts
+	public void ShellSort() {
 		Calendar start = Calendar.getInstance();
-		//Using the shell sort to lines_lengths sort the array
+		int n = total_number_of_lines;
 
-		//You need to complete this part.
+		// Start with a large gap and reduce it
+		for (int space = n / 2; space > 0; space /= 2) {
+			// Sort each "space"-spaced subarray
+			for (int begin = 0; begin < space; begin++) {
+				incrementalInsertionSort(begin, total_number_of_lines - 1, space);
+			}
 
-		//getting the date and time when the shell sort ends
+			// Update GUI after each gap iteration
+			paintComponent(this.getGraphics());
+			delay(50);
+		}
+
 		Calendar end = Calendar.getInstance();
-		//getting the time it took for the shell sort to execute
-		//subtracting the end time with the start time
 		SortGUI.shellTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+
+	// helper function to ++ insert sort
+	private void incrementalInsertionSort(int first, int last, int space) {
+		int unsorted;
+		for (unsorted = first + space; unsorted <= last; unsorted += space) {
+			int current = lines_lengths[unsorted];
+			int index = unsorted - space;
+
+			// Shift elements spaced by others that are greater than current
+			while (index >= first && current < lines_lengths[index]) {
+				lines_lengths[index + space] = lines_lengths[index];
+				index -= space;
+
+				paintComponent(this.getGraphics());
+				delay(10);
+			}
+			lines_lengths[index + space] = current;
+		}
 	}
 
 	//////////////////////////////////////////////////////////////////////
