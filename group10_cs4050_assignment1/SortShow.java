@@ -83,7 +83,28 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Using the selection sort to lines_lengths sort the array
 
-		//You need to complete this part.
+		// loop through the lines_lengths array
+		int i;
+		for(i = 0; i < total_number_of_lines; i++)
+		{
+			// we'll start by setting the current min_index to i
+			int min_index = i;
+
+			// now we'll loop through the unsorted portion of the array and look for a new minimum index
+			int j;
+			for(j = i+1; j < total_number_of_lines; j++)
+			{
+				if(lines_lengths[j] < lines_lengths[min_index])
+					min_index = j;
+			}
+
+			// once we have found the unsorted minimum, place it into the sorted portion
+			swap(i, min_index);
+
+			// update the GUI
+			paintComponent(this.getGraphics());
+			delay(10);
+		}
 
 		//getting the date and time when the selection sort ends
 		Calendar end = Calendar.getInstance();
@@ -167,7 +188,6 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////////////////////////
 
-	// TODO: Method is already given, but doesn't work?
 	//iterative merge sort method
 	public void I_MergeSort()
 	{
@@ -330,7 +350,28 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Using the insertion sort to lines_lengths sort the array
 
-		//You need to complete this part.
+		// loop through the lines_lengths array
+		// initial value i is 1, first element is assumed to be sorted
+		int i;
+		for(i = 1; i < total_number_of_lines; i++)
+		{
+			int value = lines_lengths[i]; // this is the line we are currently sorting
+			// j here acts as a reverse iterator to go over the portion of the array that has already
+			// been sorted. We'll iterate until we find the correct location for value
+			int j = i - 1;
+			for(; j >= 0 && lines_lengths[j] > value; j--)
+			{
+				// as we iterate, shift existing elements one location to the right
+				lines_lengths[j + 1] = lines_lengths[j];
+			}
+			// once correct location is found, insert the new value
+			lines_lengths[j + 1] = value;
+
+			// update the GUI
+			paintComponent(this.getGraphics());
+			delay(10);
+
+		}
 
 		//getting the date and time when the insertion sort ends
 		Calendar end = Calendar.getInstance();
