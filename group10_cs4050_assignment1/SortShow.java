@@ -286,7 +286,32 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Using the bubble sort to lines_lengths sort the array
 
-		//You need to complete this part.
+		//loop from i = 0 to total_number_of_lines
+		int i, j;
+		boolean swapped;
+		for(i = 0; i < total_number_of_lines; i++)
+		{
+			//then loop from j = 0 to total_number_of_lines - i - 1
+			swapped = false;
+			for(j = 0; j < total_number_of_lines - i - 1; j++)
+			{
+				// check j index of lines_lengths against its right neighbor
+				if(lines_lengths[j] > lines_lengths[j+1])
+				{
+					// if greater, than swap the two indexes in lines_lengths
+					swap(j, j+1);
+					swapped = true;
+
+					// update the GUI
+					paintComponent(this.getGraphics());
+					delay(10);
+				}
+			}
+
+			// if no swaps happened inside inner loop, lines_length is sorted
+			if(!swapped)
+				break;
+		}
 
 		//getting the date and time when the bubble sort ends
 		Calendar end = Calendar.getInstance();
