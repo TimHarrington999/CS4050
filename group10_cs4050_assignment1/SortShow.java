@@ -24,6 +24,8 @@ public class SortShow extends JPanel {
 	public int[] scramble_lines;
 	//A temp Array that is used later for sorts
 	public int[] tempArray;
+	// An int to define the delay time after each GUI update
+	public int sleep = 10;
 		
 	//the default constructor for the SortShow class
 	public SortShow()
@@ -75,7 +77,6 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
-	// TODO: finish Selection Sort method
 	//The selectionSort method
 	public void SelectionSort()
 	{
@@ -103,7 +104,7 @@ public class SortShow extends JPanel {
 
 			// update the GUI
 			paintComponent(this.getGraphics());
-			delay(10);
+			delay(sleep);
 		}
 
 		//getting the date and time when the selection sort ends
@@ -124,7 +125,6 @@ public class SortShow extends JPanel {
 		
 	///////////////////////////////////////////////////////////////////////////////////
 
-	// TODO: finish Recursive Merge Sort
 	//recursive merge sort method
 	public void R_MergeSort() {
 		Calendar start = Calendar.getInstance();
@@ -179,7 +179,7 @@ public class SortShow extends JPanel {
 		for (i = first, k = 0; i <= last; i++, k++) {
 			lines_lengths[i] = temp[k];
 			paintComponent(this.getGraphics());
-			delay(10);
+			delay(sleep);
 		}
 	}
 
@@ -289,13 +289,12 @@ public class SortShow extends JPanel {
 		for (index = first; index <= last; index++) {
 			lines_lengths[index] = tempArray[index];
 			paintComponent(this.getGraphics());
-			delay(10);
+			delay(sleep);
 		}
 	}
 
 	//////////////////////////////////////////////////////////////////////
 
-	// TODO: complete the Bubble Sort method
 	// bubble sort method
 	public void BubbleSort()
 	{
@@ -321,7 +320,7 @@ public class SortShow extends JPanel {
 
 					// update the GUI
 					paintComponent(this.getGraphics());
-					delay(10);
+					delay(sleep);
 				}
 			}
 
@@ -339,7 +338,6 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
-	// TODO: complete the Insertion Sort method
 	// insertion sort method
 	public void InsertionSort()
 	{
@@ -363,14 +361,14 @@ public class SortShow extends JPanel {
 
 				// update the GUI
 				paintComponent(this.getGraphics());
-				delay(10);
+				delay(sleep);
 			}
 			// once correct location is found, insert the new value
 			lines_lengths[j + 1] = value;
 
 			// update the GUI
 			paintComponent(this.getGraphics());
-			delay(10);
+			delay(sleep);
 
 		}
 
@@ -383,7 +381,6 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
-	// TODO: complete the shell sort method
 	// Helper function to ++ insert sort
 	private void incrementalInsertionSort(int first, int last, int space) {
 		int unsorted;
@@ -397,7 +394,7 @@ public class SortShow extends JPanel {
 				index -= space;
 
 				paintComponent(this.getGraphics());
-				delay(10);
+				delay(sleep);
 			}
 			lines_lengths[index + space] = current;
 		}
@@ -416,7 +413,7 @@ public class SortShow extends JPanel {
 
 			// Update GUI after each gap iteration
 			paintComponent(this.getGraphics());
-			delay(50);
+			delay(sleep);
 		}
 
 		Calendar end = Calendar.getInstance();
@@ -425,7 +422,6 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
-	// TODO: complete the quick sort method
 	// quick sort method
 	public void QuickSort()
 	{
@@ -463,14 +459,14 @@ public class SortShow extends JPanel {
 				swap(left, right);
 
 				paintComponent(this.getGraphics());
-				delay(10);
+				delay(sleep);
 			}
 		}
 
 		swap(left, last);
 
 		paintComponent(this.getGraphics());
-		delay(10);
+		delay(sleep);
 
 		rQuickSort(first, left - 1);
 		rQuickSort(left + 1, last);
@@ -478,7 +474,6 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
-	// TODO: complete the Radix sort method
 	// radix sort method
 	public void RadixSort()
 	{
@@ -506,12 +501,12 @@ public class SortShow extends JPanel {
 			for (int index = 0; index < zeroBucket.size(); index++) {
 				lines_lengths[index] = zeroBucket.get(index);
 				paintComponent(this.getGraphics());
-				delay(10);
+				delay(sleep);
 			}
 			for (int index = 0; index < oneBucket.size(); index++) {
 				lines_lengths[index + zeroBucket.size()] = oneBucket.get(index);
 				paintComponent(this.getGraphics());
-				delay(10);
+				delay(sleep);
 			}
 			//And clear them for the next iteration
 			zeroBucket.clear();
