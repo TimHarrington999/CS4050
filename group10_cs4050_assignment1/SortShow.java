@@ -178,11 +178,9 @@ public class SortShow extends JPanel {
 		// Copy the merged elements back into the original array
 		for (i = first, k = 0; i <= last; i++, k++) {
 			lines_lengths[i] = temp[k];
+			paintComponent(this.getGraphics());
+			delay(10);
 		}
-
-		// Update the GUI to visualize the merge step
-		paintComponent(this.getGraphics());
-		delay(10);
 	}
 
 
@@ -240,10 +238,6 @@ public class SortShow extends JPanel {
 			I_Merge(beginSegment1, endSegment1, endSegment2);
 
 			beginSegment1 = endSegment2 + 1;
-			//redrawing the lines_lengths
-			paintComponent(this.getGraphics());
-			//Causing a delay for 10ms
-			delay(10);
 		}
 		// Returns index of last merged pair
 		return beginSegment1;
@@ -292,8 +286,11 @@ public class SortShow extends JPanel {
 			tempArray[index] = lines_lengths[beginHalf2];
 
 		// Copy the result back into the original array
-		for (index = first; index <= last; index++)
+		for (index = first; index <= last; index++) {
 			lines_lengths[index] = tempArray[index];
+			paintComponent(this.getGraphics());
+			delay(10);
+		}
 	}
 
 	//////////////////////////////////////////////////////////////////////
@@ -363,6 +360,10 @@ public class SortShow extends JPanel {
 			{
 				// as we iterate, shift existing elements one location to the right
 				lines_lengths[j + 1] = lines_lengths[j];
+
+				// update the GUI
+				paintComponent(this.getGraphics());
+				delay(10);
 			}
 			// once correct location is found, insert the new value
 			lines_lengths[j + 1] = value;
@@ -460,6 +461,9 @@ public class SortShow extends JPanel {
 			}
 			if (left < right) {
 				swap(left, right);
+
+				paintComponent(this.getGraphics());
+				delay(10);
 			}
 		}
 
