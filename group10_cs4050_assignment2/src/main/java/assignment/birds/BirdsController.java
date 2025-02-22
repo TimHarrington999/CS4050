@@ -42,7 +42,7 @@ public class BirdsController implements Initializable {
     @FXML
     private Button play;
     @FXML
-    private Button puase;
+    private Button pause;
     @FXML
     private ComboBox size;
     @FXML
@@ -104,7 +104,7 @@ public class BirdsController implements Initializable {
 
     private void showBird() {
         play.setDisable(false);
-        puase.setDisable(true);
+        pause.setDisable(true);
         if (player != null) {
             player.stop();
         }
@@ -153,18 +153,22 @@ public class BirdsController implements Initializable {
         }
     }
 
+    // todo
     public void first() {
         // Write this method
     }
 
+    // todo
     public void last() {
         // Write this method
     }
 
+    // todo
     public void next() {
         // Write this method;
     }
 
+    // todo
     public void previous() {
         // Write this method
     }
@@ -174,13 +178,13 @@ public class BirdsController implements Initializable {
         media = new Media(new File(filename).toURI().toString());
         player = new MediaPlayer(media);
         play.setDisable(true);
-        puase.setDisable(false);
+        pause.setDisable(false);
         player.play();
     }
 
-    public void puase() {
+    public void pause() {
         play.setDisable(false);
-        puase.setDisable(true);
+        pause.setDisable(true);
         if (player != null) {
             player.stop();
         }

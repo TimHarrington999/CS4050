@@ -55,7 +55,45 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public void insert(BirdRecord r) throws DictionaryException {
-        // Write this method
+        System.out.println("Inserting a new record");
+
+        // check if root node is empty
+        if(root.isEmpty())
+        {
+            // populate the root node and return
+            root.setData(r);
+            return;
+        }
+
+        // create a new node if the root is populated, and insert it into the tree
+        Node newNode = new Node(r);
+        Node curNode = root;
+        Node parent = null;
+
+        // loop through the tree until we find where the new node belongs
+        while(curNode != null)
+        {
+            parent = curNode;
+            if(newNode.getData().getDataKey().compareTo(curNode.getData().getDataKey()) < 0)
+            {
+                curNode = curNode.getLeftChild();
+            }
+            else
+            {
+                curNode = curNode.getRightChild();
+            }
+        }
+
+        // then insert the new node where it belongs
+        newNode.setParent(parent);
+        if(newNode.getData().getDataKey().compareTo(parent.getData().getDataKey()) < 0)
+        {
+            parent.setLeftChild(newNode);
+        }
+        else
+        {
+            parent.setRightChild(newNode);
+        }
     }
 
     /**
@@ -67,7 +105,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public void remove(DataKey k) throws DictionaryException {
-        // Write this method
+        // todo: Write this method
     }
 
     /**
@@ -81,7 +119,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord successor(DataKey k) throws DictionaryException{
-        // Write this method
+        // todo: Write this method
         return null; // change this statement
     }
 
@@ -97,7 +135,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord predecessor(DataKey k) throws DictionaryException{
-        // Write this method
+        // todo: Write this method
         return null; // change this statement
     }
 
@@ -109,7 +147,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord smallest() throws DictionaryException{
-        // Write this method
+        // todo: Write this method
         return null; // change this statement
     }
 
@@ -119,7 +157,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord largest() throws DictionaryException{
-        // Write this method
+        // todo: Write this method
         return null; // change this statement
     }
       
