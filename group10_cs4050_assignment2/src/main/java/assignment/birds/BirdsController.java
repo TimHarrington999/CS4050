@@ -160,22 +160,34 @@ public class BirdsController implements Initializable {
 
     // todo
     public void first() {
-        // Write this method
+        try {
+            bird = database.smallest();
+            showBird();
+        } catch (DictionaryException ex) {}
     }
 
     // todo
     public void last() {
-        // Write this method
+        try {
+            bird = database.largest();
+            showBird();
+        } catch (DictionaryException ex) {}
     }
 
     // todo
     public void next() {
-        // Write this method;
+        try {
+            bird = database.successor(bird.getDataKey());
+            showBird();
+        } catch (DictionaryException ex) {}
     }
 
     // todo
     public void previous() {
-        // Write this method
+        try {
+            bird = database.predecessor(bird.getDataKey());
+            showBird();
+        } catch (DictionaryException ex) {}
     }
 
     public void play() {

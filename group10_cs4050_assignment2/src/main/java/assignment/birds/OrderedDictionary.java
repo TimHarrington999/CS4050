@@ -294,7 +294,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
 
         Node current = root;
 
-        while (current.hasLeftChild() & !current.getLeftChild().isEmpty()) {
+        while (current.hasLeftChild() && !current.getLeftChild().isEmpty()) {
             current = current.getLeftChild();
         }
 
@@ -310,7 +310,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
 
         Node current = root;
 
-        while (current.hasRightChild() & !current.getRightChild().isEmpty()) {
+        while (current.hasRightChild() && !current.getRightChild().isEmpty()) {
             current = current.getRightChild();
         }
 
