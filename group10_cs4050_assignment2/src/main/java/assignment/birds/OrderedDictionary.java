@@ -291,18 +291,30 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord smallest() throws DictionaryException {
-        // todo: Write this method
-        return null; // change this statement
+
+        Node current = root;
+
+        while (current.hasLeftChild() & !current.getLeftChild().isEmpty()) {
+            current = current.getLeftChild();
+        }
+
+        return current.getData();
     }
 
-    /*
+    /**
      * Returns the record with largest key in the ordered dictionary. Returns
      * null if the dictionary is empty.
      */
     @Override
     public BirdRecord largest() throws DictionaryException {
-        // todo: Write this method
-        return null; // change this statement
+
+        Node current = root;
+
+        while (current.hasRightChild() & !current.getRightChild().isEmpty()) {
+            current = current.getRightChild();
+        }
+
+        return current.getData();
     }
 
     /* Returns true if the dictionary is empty, and true otherwise. */

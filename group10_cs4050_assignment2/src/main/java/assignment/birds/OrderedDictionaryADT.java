@@ -70,9 +70,9 @@ public interface OrderedDictionaryADT {
      */
     public BirdRecord largest() throws DictionaryException;
 
-    /* Returns true if the dictionary is empty, and true otherwise. 
+   /* Returns true if the dictionary is empty, and true otherwise.
 
-       @return boolean
-     */
+          @return boolean
+        */
     public boolean isEmpty();
 }
