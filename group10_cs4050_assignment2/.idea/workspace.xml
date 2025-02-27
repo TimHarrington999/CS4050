@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="71cb5ca6-d660-4760-b680-d6d104d37267" name="Changes" comment="Done remove, successor, predecessor, and isEmpty">
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/birds/BirdsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/birds/BirdsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/birds/OrderedDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/birds/OrderedDictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/birds/OrderedDictionaryADT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/birds/OrderedDictionaryADT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/BirdsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignment/birds/BirdsController.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2tbqfsOL64dG4CTR3KriRlcqHti" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Birds.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Birds.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/14172/Desktop/CS4050_assigments/assignment2/CS4050/group10_cs4050_assignment2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Birds">
+    <configuration name="Birds" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="assignment.birds.Birds" />
+      <module name="Birds" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Birds" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Birds" />
+      <item itemvalue="Maven.Birds" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="71cb5ca6-d660-4760-b680-d6d104d37267" name="Changes" comment="" />
+      <created>1740631228185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740631228185</updated>
+      <workItem from="1740631229319" duration="8350000" />
+    </task>
+    <task id="LOCAL-00001" summary="Done remove, successor, predecessor, and isEmpty">
+      <option name="closed" value="true" />
+      <created>1740636952830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740636952830</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Done remove, successor, predecessor, and isEmpty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done remove, successor, predecessor, and isEmpty" />
+  </component>
+</project>

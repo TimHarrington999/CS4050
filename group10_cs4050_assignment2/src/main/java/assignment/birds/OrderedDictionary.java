@@ -17,7 +17,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment/birds/DictionaryException.java
      */
     @Override
-    public BirdRecord find(DataKey k) throws DictionaryException {
+    public BirdRecord find(DataKey k) throws assignment.birds.DictionaryException {
         Node current = root;
         int comparison;
         if (root.isEmpty()) {
@@ -96,7 +96,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment.birds.DictionaryException
      */
     @Override
-    public void remove(DataKey k) throws DictionaryException {
+    public void remove(DataKey k) throws assignment.birds.DictionaryException {
         Node nodeToRemove = findNode(k);
         if (nodeToRemove == null || nodeToRemove.isEmpty()) {
             throw new DictionaryException("No such record key exists");
@@ -176,7 +176,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment.birds.DictionaryException
      */
     @Override
-    public BirdRecord successor(DataKey k) throws DictionaryException {
+    public BirdRecord successor(DataKey k) throws assignment.birds.DictionaryException {
         Node current = root;
         BirdRecord successorRecord = null;
 
@@ -228,7 +228,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment.birds.DictionaryException
      */
     @Override
-    public BirdRecord predecessor(DataKey k) throws DictionaryException {
+    public BirdRecord predecessor(DataKey k) throws assignment.birds.DictionaryException {
         if (isEmpty()) {
             throw new DictionaryException("Dictionary is empty");
         }
@@ -290,7 +290,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @return
      */
     @Override
-    public BirdRecord smallest() throws DictionaryException {
+    public BirdRecord smallest() throws assignment.birds.DictionaryException {
         // todo: Write this method
         return null; // change this statement
     }
@@ -300,7 +300,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * null if the dictionary is empty.
      */
     @Override
-    public BirdRecord largest() throws DictionaryException {
+    public BirdRecord largest() throws assignment.birds.DictionaryException {
         // todo: Write this method
         return null; // change this statement
     }
