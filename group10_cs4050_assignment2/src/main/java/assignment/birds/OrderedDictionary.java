@@ -96,7 +96,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment.birds.DictionaryException
      */
     @Override
-    public void remove(DataKey k) throws DictionaryException {
+    public void remove(DataKey k) throws assignment.birds.DictionaryException {
         Node nodeToRemove = findNode(k);
         if (nodeToRemove == null || nodeToRemove.isEmpty()) {
             throw new DictionaryException("No such record key exists");
@@ -176,7 +176,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment.birds.DictionaryException
      */
     @Override
-    public BirdRecord successor(DataKey k) throws DictionaryException {
+    public BirdRecord successor(DataKey k) throws assignment.birds.DictionaryException {
         Node current = root;
         BirdRecord successorRecord = null;
 
@@ -228,7 +228,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment.birds.DictionaryException
      */
     @Override
-    public BirdRecord predecessor(DataKey k) throws DictionaryException {
+    public BirdRecord predecessor(DataKey k) throws assignment.birds.DictionaryException {
         if (isEmpty()) {
             throw new DictionaryException("Dictionary is empty");
         }

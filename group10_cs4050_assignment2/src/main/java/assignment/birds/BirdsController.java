@@ -60,7 +60,12 @@ public class BirdsController implements Initializable {
     }
 
     public void find() {
-        DataKey key = new DataKey(this.name.getText(), birdSize);
+        String birdName = name.getText().trim();
+        if (birdName.isEmpty()) {
+            displayAlert("Please enter a bird name.");
+            return;
+        }
+        DataKey key = new DataKey(birdName, birdSize);
         try {
             bird = database.find(key);
             showBird();
