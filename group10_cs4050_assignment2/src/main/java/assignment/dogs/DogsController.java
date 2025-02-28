@@ -1,4 +1,4 @@
-package assignment.birds;
+package assignment.dogs;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -27,14 +27,14 @@ import java.util.logging.Logger;
  *
  * @author Ouda
  */
-public class BirdsController implements Initializable {
+public class DogsController implements Initializable {
 
     @FXML
     private MenuBar mainMenu;
     @FXML
     private ImageView image;
     @FXML
-    private BorderPane BirdPortal;
+    private BorderPane DogPortal;
     @FXML
     private Label title;
     @FXML
@@ -50,8 +50,8 @@ public class BirdsController implements Initializable {
     Media media;
     MediaPlayer player;
     OrderedDictionary database = null;
-    BirdRecord bird = null;
-    int birdSize = 1;
+    DogRecord dog = null;
+    int dogSize = 1;
 
     @FXML
     public void exit() {
@@ -60,64 +60,64 @@ public class BirdsController implements Initializable {
     }
 
     public void find() {
-        String birdName = name.getText().trim();
-        if (birdName.isEmpty()) {
-            displayAlert("Please enter a bird name.");
+        String dogName = name.getText().trim();
+        if (dogName.isEmpty()) {
+            displayAlert("Please enter a dog name.");
             return;
         }
-        DataKey key = new DataKey(birdName, birdSize);
+        DataKey key = new DataKey(dogName, dogSize);
         try {
-            bird = database.find(key);
-            showBird();
+            dog = database.find(key);
+            showDog();
         } catch (DictionaryException ex) {
             displayAlert(ex.getMessage());
         }
     }
 
     public void delete() {
-        BirdRecord previousBird = null;
+        DogRecord previousDog = null;
         try {
-            previousBird = database.predecessor(bird.getDataKey());
+            previousDog = database.predecessor(dog.getDataKey());
         } catch (DictionaryException ex) {
 
         }
-        BirdRecord nextBird = null;
+        DogRecord nextDog = null;
         try {
-            nextBird = database.successor(bird.getDataKey());
+            nextDog = database.successor(dog.getDataKey());
         } catch (DictionaryException ex) {
 
         }
-        DataKey key = bird.getDataKey();
+        DataKey key = dog.getDataKey();
         try {
             database.remove(key);
         } catch (DictionaryException ex) {
             System.out.println("Error in delete "+ ex);
         }
         if (database.isEmpty()) {
-            this.BirdPortal.setVisible(false);
-            displayAlert("No more birds in the database to show");
+            this.DogPortal.setVisible(false);
+            displayAlert("No more dogs in the database to show");
         } else {
-            if (previousBird != null) {
-                bird = previousBird;
-                showBird();
-            } else if (nextBird != null) {
-                bird = nextBird;
-                showBird();
+            if (previousDog != null) {
+                dog = previousDog;
+                showDog();
+            } else if (nextDog != null) {
+                dog = nextDog;
+                showDog();
             }
         }
     }
 
-    private void showBird() {
+    private void showDog() {
         play.setDisable(false);
         pause.setDisable(true);
         if (player != null) {
             player.stop();
         }
-        String img = bird.getImage();
-        Image birdImage = new Image("file:src/main/resources/assignment/birds/images/" + img);
-        image.setImage(birdImage);
-        title.setText(bird.getDataKey().getBirdName());
-        about.setText(bird.getAbout());
+        String img = dog.getImage();
+        Image dogImage = new Image("file:src/main/resources/assignment/dogs/images/" + img);
+        image.setImage(dogImage);
+        title.setText(dog.getDataKey().getDogName());
+        about.setText(dog.getAbout());
     }
 
     private void displayAlert(String msg) {
@@ -131,7 +131,7 @@ public class BirdsController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
 
-            stage.getIcons().add(new Image("file:src/main/resources/assignment/birds/images/UMIcon.png"));
+            stage.getIcons().add(new Image("file:src/main/resources/assignment/dogs/images/UMIcon.png"));
             stage.setTitle("Dictionary Exception");
             controller.setAlertText(msg);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -145,13 +145,13 @@ public class BirdsController implements Initializable {
     public void getSize() {
         switch (this.size.getValue().toString()) {
             case "Small":
-                this.birdSize = 1;
+                this.dogSize = 1;
                 break;
             case "Medium":
-                this.birdSize = 2;
+                this.dogSize = 2;
                 break;
             case "Large":
-                this.birdSize = 3;
+                this.dogSize = 3;
                 break;
             default:
                 break;
@@ -161,37 +161,37 @@ public class BirdsController implements Initializable {
     // todo
     public void first() {
         try {
-            bird = database.smallest();
-            showBird();
+            dog = database.smallest();
+            showDog();
         } catch (DictionaryException ex) {}
     }
 
     // todo
     public void last() {
         try {
-            bird = database.largest();
-            showBird();
+            dog = database.largest();
+            showDog();
         } catch (DictionaryException ex) {}
     }
 
     // todo
     public void next() {
         try {
-            bird = database.successor(bird.getDataKey());
-            showBird();
+            dog = database.successor(dog.getDataKey());
+            showDog();
         } catch (DictionaryException ex) {}
     }
 
     // todo
     public void previous() {
         try {
-            bird = database.predecessor(bird.getDataKey());
-            showBird();
+            dog = database.predecessor(dog.getDataKey());
+            showDog();
         } catch (DictionaryException ex) {}
     }
 
     public void play() {
-        String filename = "src/main/resources/assignment/birds/sounds/" + bird.getSound();
+        String filename = "src/main/resources/assignment/dogs/sounds/" + dog.getSound();
         media = new Media(new File(filename).toURI().toString());
         player = new MediaPlayer(media);
         play.setDisable(true);
@@ -211,10 +211,10 @@ public class BirdsController implements Initializable {
         Scanner input;
         int line = 0;
         try {
-            String birdName = "";
+            String dogName = "";
             String description;
             int size = 0;
-            input = new Scanner(new File("BirdsDatabase.txt"));
+            input = new Scanner(new File("DogsDatabase.txt"));
             while (input.hasNext()) // read until  end of file
             {
                 String data = input.nextLine();
@@ -223,22 +223,22 @@ public class BirdsController implements Initializable {
                         size = Integer.parseInt(data);
                         break;
                     case 1:
-                        birdName = data;
+                        dogName = data;
                         break;
                     default:
                         description = data;
-                        database.insert(new BirdRecord(new DataKey(birdName, size), description, birdName + ".mp3", birdName + ".jpg"));
+                        database.insert(new DogRecord(new DataKey(dogName, size), description, dogName + ".mp3", dogName + ".jpg"));
                         break;
                 }
                 line++;
             }
         } catch (IOException e) {
-            System.out.println("There was an error in reading or opening the file: BirdsDatabase.txt");
+            System.out.println("There was an error in reading or opening the file: DogsDatabase.txt");
             System.out.println(e.getMessage());
         } catch (DictionaryException ex) {
-            Logger.getLogger(BirdsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DogsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.BirdPortal.setVisible(true);
+        this.DogPortal.setVisible(true);
         this.first();
     }
 
