@@ -1,0 +1,596 @@
+Index: src/main/resources/assignment/dogs/dogs-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.ComboBox?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Menu?>\r\n<?import javafx.scene.control.MenuBar?>\r\n<?import javafx.scene.control.MenuItem?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<BorderPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"730.0\" prefWidth=\"971.0\" style=\"-fx-background-image: url(&quot;file:src/main/resources/assignment/dogs/images/UMBackground.png&quot;); \" xmlns=\"http://javafx.com/javafx/15.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"assignment.dogs.DogsController\">\r\n    <top>\r\n        <MenuBar fx:id=\"mainMenu\" BorderPane.alignment=\"CENTER\">\r\n            <menus>\r\n                <Menu mnemonicParsing=\"false\" text=\"File\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" onAction=\"#loadDictionary\" text=\"Fill Dictionary\" />\r\n                        <MenuItem mnemonicParsing=\"false\" onAction=\"#exit\" text=\"Close\" />\r\n                    </items>\r\n                </Menu>\r\n            </menus>\r\n        </MenuBar>\r\n    </top>\r\n    <center>\r\n        <BorderPane fx:id=\"DogPortal\" prefHeight=\"200.0\" prefWidth=\"200.0\" visible=\"false\" BorderPane.alignment=\"CENTER\">\r\n            <BorderPane.margin>\r\n                <Insets bottom=\"20.0\" left=\"40.0\" right=\"40.0\" top=\"40.0\" />\r\n            </BorderPane.margin>\r\n            <top>\r\n                <HBox alignment=\"TOP_CENTER\" prefHeight=\"29.0\" prefWidth=\"860.0\" BorderPane.alignment=\"CENTER\">\r\n                    <children>\r\n                        <Button fx:id=\"first\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" mnemonicParsing=\"false\" onAction=\"#first\" prefHeight=\"28.0\" prefWidth=\"90.0\" style=\"-fx-background-color: lightgreen;\" text=\"First\">\r\n                            <HBox.margin>\r\n                                <Insets right=\"10.0\" />\r\n                            </HBox.margin>\r\n                        </Button>\r\n                        <Button fx:id=\"next\" minWidth=\"-Infinity\" mnemonicParsing=\"false\" onAction=\"#next\" prefHeight=\"28.0\" prefWidth=\"90.0\" style=\"-fx-background-color: lightgreen;\" text=\"Next\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"10.0\" right=\"10.0\" />\r\n                            </HBox.margin>\r\n                        </Button>\r\n                        <Button fx:id=\"previous\" minWidth=\"-Infinity\" mnemonicParsing=\"false\" onAction=\"#previous\" prefHeight=\"27.0\" prefWidth=\"90.0\" style=\"-fx-background-color: lightgreen;\" text=\"Previous\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"10.0\" right=\"10.0\" />\r\n                            </HBox.margin>\r\n                        </Button>\r\n                        <Button fx:id=\"last\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" mnemonicParsing=\"false\" onAction=\"#last\" prefHeight=\"28.0\" prefWidth=\"90.0\" style=\"-fx-background-color: lightgreen;\" text=\"Last\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"10.0\" right=\"10.0\" />\r\n                            </HBox.margin>\r\n                        </Button>\r\n                    </children>\r\n                </HBox>\r\n            </top>\r\n            <center>\r\n                <VBox prefHeight=\"620.0\" prefWidth=\"868.0\" BorderPane.alignment=\"CENTER\">\r\n                    <children>\r\n                        <Label fx:id=\"title\" prefHeight=\"27.0\" prefWidth=\"408.0\" text=\"Label\" textFill=\"#0521f5\">\r\n                            <VBox.margin>\r\n                                <Insets bottom=\"20.0\" left=\"40.0\" top=\"40.0\" />\r\n                            </VBox.margin>\r\n                            <font>\r\n                                <Font name=\"System Bold\" size=\"20.0\" />\r\n                            </font>\r\n\r\n                        </Label>\r\n                        <HBox maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"100.0\" prefWidth=\"795.0\">\r\n                            <VBox.margin>\r\n                                <Insets bottom=\"20.0\" left=\"40.0\" right=\"40.0\" />\r\n                            </VBox.margin>\r\n                            <children>\r\n                                <Label fx:id=\"about\" alignment=\"TOP_LEFT\" prefHeight=\"106.0\" prefWidth=\"646.0\" text=\"Label\" textAlignment=\"JUSTIFY\" textFill=\"#0521f5\" wrapText=\"true\">\r\n                                    <font>\r\n                                        <Font name=\"System Italic\" size=\"15.0\" />\r\n                                    </font></Label>\r\n                                <Button fx:id=\"delete\" mnemonicParsing=\"false\" onAction=\"#delete\" prefHeight=\"28.0\" prefWidth=\"109.0\" style=\"-fx-background-color: RED;\" text=\"Delete\" textFill=\"WHITE\">\r\n                                    <HBox.margin>\r\n                                        <Insets left=\"40.0\" top=\"30.0\" />\r\n                                    </HBox.margin>\r\n                                </Button>\r\n                            </children>\r\n                        </HBox>\r\n                        <HBox prefHeight=\"354.0\" prefWidth=\"600.0\" style=\"-fx-border-color: black;\">\r\n                            <VBox.margin>\r\n                                <Insets left=\"40.0\" right=\"40.0\" />\r\n                            </VBox.margin>\r\n                            <children>\r\n                                <ImageView fx:id=\"image\" fitHeight=\"352.0\" fitWidth=\"329.0\" pickOnBounds=\"true\">\r\n                                    <HBox.margin>\r\n                                        <Insets right=\"70.0\" />\r\n                                    </HBox.margin></ImageView>\r\n                                <Button fx:id=\"play\" mnemonicParsing=\"false\" onAction=\"#play\" prefHeight=\"100.0\" prefWidth=\"100.0\" style=\"-fx-background-color: green;\" text=\"Play\" textFill=\"#f8f7f7\">\r\n                                    <HBox.margin>\r\n                                        <Insets left=\"60.0\" top=\"130.0\" />\r\n                                    </HBox.margin>\r\n                                    <font>\r\n                                        <Font name=\"System Bold\" size=\"20.0\" />\r\n                                    </font>\r\n                                </Button>\r\n                                <Button fx:id=\"pause\" mnemonicParsing=\"false\" onAction=\"#pause\" prefHeight=\"100.0\" prefWidth=\"100.0\" style=\"-fx-background-color: green;\" text=\"Stop\" textFill=\"#fffdfd\">\r\n                                    <HBox.margin>\r\n                                        <Insets left=\"50.0\" top=\"130.0\" />\r\n                                    </HBox.margin>\r\n                                    <font>\r\n                                        <Font name=\"System Bold\" size=\"20.0\" />\r\n                                    </font>\r\n                                </Button>\r\n                            </children>\r\n                        </HBox>\r\n                    </children>\r\n                </VBox>\r\n            </center>\r\n            <bottom>\r\n                <HBox alignment=\"CENTER\" BorderPane.alignment=\"CENTER\">\r\n                    <children>\r\n                        <Label prefHeight=\"21.0\" prefWidth=\"76.0\" text=\"Dog Name\" />\r\n                        <TextField fx:id=\"name\" prefHeight=\"29.0\" prefWidth=\"186.0\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"10.0\" />\r\n                            </HBox.margin>\r\n                        </TextField>\r\n                        <Label text=\"Dog Size\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"20.0\" />\r\n                            </HBox.margin>\r\n                        </Label>\r\n                        <ComboBox fx:id=\"size\" onAction=\"#getSize\" prefHeight=\"27.0\" prefWidth=\"144.0\" visibleRowCount=\"3\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"20.0\" />\r\n                            </HBox.margin>\r\n                        </ComboBox>\r\n                        <Button fx:id=\"find\" mnemonicParsing=\"false\" onAction=\"#find\" prefHeight=\"28.0\" prefWidth=\"57.0\" style=\"-fx-background-color: lightblue;\" text=\"Find\">\r\n                            <HBox.margin>\r\n                                <Insets left=\"10.0\" />\r\n                            </HBox.margin>\r\n                        </Button>\r\n                    </children>\r\n                    <BorderPane.margin>\r\n                        <Insets top=\"20.0\" />\r\n                    </BorderPane.margin>\r\n                </HBox>\r\n            </bottom>\r\n        </BorderPane>\r\n    </center>\r\n</BorderPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assignment/dogs/dogs-view.fxml b/src/main/resources/assignment/dogs/dogs-view.fxml
+--- a/src/main/resources/assignment/dogs/dogs-view.fxml	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
++++ b/src/main/resources/assignment/dogs/dogs-view.fxml	(date 1740728653855)
+@@ -63,12 +63,20 @@
+                     <children>
+                         <Label fx:id="title" prefHeight="27.0" prefWidth="408.0" text="Label" textFill="#0521f5">
+                             <VBox.margin>
+-                                <Insets bottom="20.0" left="40.0" top="40.0" />
++                                <Insets bottom="10.0" left="40.0" top="40.0" />
+                             </VBox.margin>
+                             <font>
+                                 <Font name="System Bold" size="20.0" />
+                             </font>
+-
++                        </Label>
++                        <!-- Size Display Label -->
++                        <Label fx:id="sizeLabel" prefHeight="27.0" prefWidth="408.0" text="Size: " textFill="#0521f5">
++                            <VBox.margin>
++                                <Insets bottom="20.0" left="40.0" />
++                            </VBox.margin>
++                            <font>
++                                <Font name="System Bold" size="16.0" />
++                            </font>
+                         </Label>
+                         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="795.0">
+                             <VBox.margin>
+@@ -78,7 +86,8 @@
+                                 <Label fx:id="about" alignment="TOP_LEFT" prefHeight="106.0" prefWidth="646.0" text="Label" textAlignment="JUSTIFY" textFill="#0521f5" wrapText="true">
+                                     <font>
+                                         <Font name="System Italic" size="15.0" />
+-                                    </font></Label>
++                                    </font>
++                                </Label>
+                                 <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: RED;" text="Delete" textFill="WHITE">
+                                     <HBox.margin>
+                                         <Insets left="40.0" top="30.0" />
+@@ -94,7 +103,8 @@
+                                 <ImageView fx:id="image" fitHeight="352.0" fitWidth="329.0" pickOnBounds="true">
+                                     <HBox.margin>
+                                         <Insets right="70.0" />
+-                                    </HBox.margin></ImageView>
++                                    </HBox.margin>
++                                </ImageView>
+                                 <Button fx:id="play" mnemonicParsing="false" onAction="#play" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: green;" text="Play" textFill="#f8f7f7">
+                                     <HBox.margin>
+                                         <Insets left="60.0" top="130.0" />
+@@ -130,7 +140,8 @@
+                                 <Insets left="20.0" />
+                             </HBox.margin>
+                         </Label>
+-                        <ComboBox fx:id="size" onAction="#getSize" prefHeight="27.0" prefWidth="144.0" visibleRowCount="3">
++                        <!-- Size Selection ComboBox -->
++                        <ComboBox fx:id="sizeComboBox" onAction="#getSize" prefHeight="27.0" prefWidth="144.0" visibleRowCount="3">
+                             <HBox.margin>
+                                 <Insets left="20.0" />
+                             </HBox.margin>
+@@ -148,4 +159,4 @@
+             </bottom>
+         </BorderPane>
+     </center>
+-</BorderPane>
++</BorderPane>
+\ No newline at end of file
+Index: src/main/java/assignment/dogs/OrderedDictionary.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package assignment.dogs;\r\n\r\npublic class OrderedDictionary implements OrderedDictionaryADT {\r\n\r\n    Node root;\r\n\r\n    OrderedDictionary() {\r\n        root = new Node();\r\n    }\r\n\r\n    /**\r\n     * Returns the Record object with key k, or it returns null if such a record\r\n     * is not in the dictionary.\r\n     *\r\n     * @param k\r\n     * @return\r\n     * @throws assignment/dogs/DictionaryException.java\r\n     */\r\n    @Override\r\n    public DogRecord find(DataKey k) throws DictionaryException {\r\n        Node current = root;\r\n        int comparison;\r\n        if (root.isEmpty()) {\r\n            throw new DictionaryException(\"There is no record matches the given key\");\r\n        }\r\n\r\n        while (true) {\r\n            comparison = current.getData().getDataKey().compareTo(k);\r\n            if (comparison == 0) { // key found\r\n                return current.getData();\r\n            }\r\n            if (comparison == 1) {\r\n                if (current.getLeftChild() == null) {\r\n                    // Key not found\r\n                    throw new DictionaryException(\"There is no record matches the given key\");\r\n                }\r\n                current = current.getLeftChild();\r\n            } else if (comparison == -1) {\r\n                if (current.getRightChild() == null) {\r\n                    // Key not found\r\n                    throw new DictionaryException(\"There is no record matches the given key\");\r\n                }\r\n                current = current.getRightChild();\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    /**\r\n     * Inserts r into the ordered dictionary. It throws a DictionaryException if\r\n     * a record with the same key as r is already in the dictionary.\r\n     *\r\n     * @param r\r\n     * @throws assignment.dogs.DictionaryException\r\n     */\r\n    @Override\r\n    public void insert(DogRecord r) throws assignment.dogs.DictionaryException {\r\n        System.out.println(\"Inserting a new record\");\r\n        //check if the root node exists\r\n        if (root==null) {\r\n            root = new Node();\r\n        }\r\n\r\n        // check if root node is empty\r\n        if (root.isEmpty()) {\r\n            // populate the root node and return\r\n            root.setData(r);\r\n            return;\r\n        }\r\n\r\n        // create a new node if the root is populated, and insert it into the tree\r\n        Node newNode = new Node(r);\r\n        Node curNode = root;\r\n        Node parent = null;\r\n\r\n        // loop through the tree until we find where the new node belongs\r\n        while (curNode != null) {\r\n            parent = curNode;\r\n            if (newNode.getData().getDataKey().compareTo(curNode.getData().getDataKey()) < 0) {\r\n                curNode = curNode.getLeftChild();\r\n            } else {\r\n                curNode = curNode.getRightChild();\r\n            }\r\n        }\r\n\r\n        // then insert the new node where it belongs\r\n        newNode.setParent(parent);\r\n        if (newNode.getData().getDataKey().compareTo(parent.getData().getDataKey()) < 0) {\r\n            parent.setLeftChild(newNode);\r\n        } else {\r\n            parent.setRightChild(newNode);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Removes the record with Key k from the dictionary. It throws a\r\n     * DictionaryException if the record is not in the dictionary.\r\n     *\r\n     * @param k\r\n     * @throws assignment.dogs.DictionaryException\r\n     */\r\n    @Override\r\n    public void remove(DataKey k) throws assignment.dogs.DictionaryException {\r\n        Node nodeToRemove = findNode(k);\r\n        if (nodeToRemove == null || nodeToRemove.isEmpty()) {\r\n            throw new DictionaryException(\"No such record key exists\");\r\n        }\r\n\r\n        // if node has no children, we reached leaf\r\n        if (nodeToRemove.isLeaf()) {\r\n            replaceNodeInParent(nodeToRemove, null);\r\n        }\r\n        // if node has one child\r\n        else if (!nodeToRemove.hasLeftChild()) {\r\n            replaceNodeInParent(nodeToRemove, nodeToRemove.getRightChild());\r\n        } else if (!nodeToRemove.hasRightChild()) {\r\n            replaceNodeInParent(nodeToRemove, nodeToRemove.getLeftChild());\r\n        }\r\n        // if node has two children\r\n        else {\r\n            Node successor = findMinNode(nodeToRemove.getRightChild());\r\n            nodeToRemove.setData(successor.getData());\r\n            // Remove the successor, the condition is node has at most one right child\r\n            if (successor.getRightChild() != null) {\r\n                replaceNodeInParent(successor, successor.getRightChild());\r\n            } else {\r\n                replaceNodeInParent(successor, null);\r\n            }\r\n        }\r\n    }\r\n\r\n    // Helper function to find the node with key k\r\n    private Node findNode(DataKey k) {\r\n        Node current = root;\r\n        while (current != null && !current.isEmpty()) {\r\n            int cmp = current.getData().getDataKey().compareTo(k);\r\n            if (cmp == 0) {\r\n                return current;\r\n            } else if (cmp == 1) {\r\n                current = current.getLeftChild();\r\n            } else {\r\n                current = current.getRightChild();\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    // Helper function to replace a node with its parent\r\n    private void replaceNodeInParent(Node node, Node replacement) {\r\n        Node parent = node.getParent();\r\n        if (parent == null) {\r\n            root = replacement; // Update root\r\n        } else {\r\n            if (parent.getLeftChild() == node) {\r\n                parent.setLeftChild(replacement);\r\n            } else {\r\n                parent.setRightChild(replacement);\r\n            }\r\n        }\r\n        if (replacement != null) {\r\n            replacement.setParent(parent);\r\n        }\r\n    }\r\n\r\n    // Helper function to find the minimum node in a subtree\r\n    private Node findMinNode(Node node) {\r\n        while (node.hasLeftChild()) {\r\n            node = node.getLeftChild();\r\n        }\r\n        return node;\r\n    }\r\n\r\n    /**\r\n     * Returns the successor of k (the record from the ordered dictionary with\r\n     * smallest key larger than k); it returns null if the given key has no\r\n     * successor. The given key DOES NOT need to be in the dictionary.\r\n     *\r\n     * @param k\r\n     * @return\r\n     * @throws assignment.dogs.DictionaryException\r\n     */\r\n    @Override\r\n    public DogRecord successor(DataKey k) throws assignment.dogs.DictionaryException {\r\n        Node current = root;\r\n        DogRecord successorRecord = null;\r\n\r\n        while (current != null && !current.isEmpty()) {\r\n            int cmp = current.getData().getDataKey().compareTo(k);\r\n            if (cmp == 1) { // current > k\r\n                successorRecord = current.getData(); // Potential successor\r\n                current = current.getLeftChild();\r\n            } else { // current <= k\r\n                current = current.getRightChild();\r\n            }\r\n        }\r\n\r\n        // If key exists, check right subtree\r\n        try {\r\n            DogRecord foundRecord = find(k);\r\n            if (foundRecord != null) {\r\n                Node foundNode = findNode(foundRecord.getDataKey());\r\n                if (foundNode.hasRightChild()) {\r\n                    return findMin(foundNode.getRightChild());\r\n                }\r\n            }\r\n        } catch (DictionaryException ignored) {\r\n            // key not found -> proceed with general case\r\n        }\r\n\r\n        if (successorRecord == null) {\r\n            throw new DictionaryException(\"There is no successor for the given record key\");\r\n        }\r\n        return successorRecord;\r\n    }\r\n\r\n    // Helper function to find the minimum record\r\n    private DogRecord findMin(Node node) {\r\n        while (node.hasLeftChild()) {\r\n            node = node.getLeftChild();\r\n        }\r\n        return node.getData();\r\n    }\r\n\r\n\r\n    /**\r\n     * Returns the predecessor of k (the record from the ordered dictionary with\r\n     * largest key smaller than k; it returns null if the given key has no\r\n     * predecessor. The given key DOES NOT need to be in the dictionary.\r\n     *\r\n     * @param k\r\n     * @return\r\n     * @throws assignment.dogs.DictionaryException\r\n     */\r\n    @Override\r\n    public DogRecord predecessor(DataKey k) throws assignment.dogs.DictionaryException {\r\n        if (isEmpty()) {\r\n            throw new DictionaryException(\"Dictionary is empty\");\r\n        }\r\n\r\n        Node current = root;\r\n        DogRecord predecessorRecord = null;\r\n\r\n        while (current != null && !current.isEmpty()) {\r\n            int cmp = current.getData().getDataKey().compareTo(k);\r\n            if (cmp == -1) { // current < k\r\n                predecessorRecord = current.getData();\r\n                current = current.getRightChild();\r\n            } else { // current >= k, then -> left\r\n                current = current.getLeftChild();\r\n            }\r\n        }\r\n\r\n        // If key exists, check left\r\n        try {\r\n            DogRecord foundRecord = find(k);\r\n            if (foundRecord != null) {\r\n                Node foundNode = findNode(foundRecord.getDataKey());\r\n                if (foundNode.hasLeftChild()) {\r\n                    return findMax(foundNode.getLeftChild());\r\n                } else {\r\n                    // move up to find ancestor\r\n                    Node parent = foundNode.getParent();\r\n                    while (parent != null && foundNode == parent.getLeftChild()) {\r\n                        foundNode = parent;\r\n                        parent = parent.getParent();\r\n                    }\r\n                    if (parent != null) {\r\n                        return parent.getData();\r\n                    }\r\n                }\r\n            }\r\n        } catch (DictionaryException ignored) {\r\n            // key not found -> proceed with general case\r\n        }\r\n\r\n        if (predecessorRecord == null) {\r\n            throw new DictionaryException(\"There is no predecessor for the given record key\");\r\n        }\r\n        return predecessorRecord;\r\n    }\r\n\r\n    // Helper method to find the maximum node in a subtree\r\n    private DogRecord findMax(Node node) {\r\n        while (node.hasRightChild()) {\r\n            node = node.getRightChild();\r\n        }\r\n        return node.getData();\r\n    }\r\n\r\n    /**\r\n     * Returns the record with smallest key in the ordered dictionary. Returns\r\n     * null if the dictionary is empty.\r\n     *\r\n     * @return\r\n     */\r\n    @Override\r\n    public DogRecord smallest() throws DictionaryException {\r\n\r\n        Node current = root;\r\n\r\n        while (current.hasLeftChild() && !current.getLeftChild().isEmpty()) {\r\n            current = current.getLeftChild();\r\n        }\r\n\r\n        return current.getData();\r\n    }\r\n\r\n    /**\r\n     * Returns the record with largest key in the ordered dictionary. Returns\r\n     * null if the dictionary is empty.\r\n     */\r\n    @Override\r\n    public DogRecord largest() throws DictionaryException {\r\n\r\n        Node current = root;\r\n\r\n        while (current.hasRightChild() && !current.getRightChild().isEmpty()) {\r\n            current = current.getRightChild();\r\n        }\r\n\r\n        return current.getData();\r\n    }\r\n\r\n    /* Returns true if the dictionary is empty, and true otherwise. */\r\n    @Override\r\n    public boolean isEmpty() {\r\n        return (root == null || root.isEmpty());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/assignment/dogs/OrderedDictionary.java b/src/main/java/assignment/dogs/OrderedDictionary.java
+--- a/src/main/java/assignment/dogs/OrderedDictionary.java	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
++++ b/src/main/java/assignment/dogs/OrderedDictionary.java	(date 1740721390993)
+@@ -1,4 +1,6 @@
+ package assignment.dogs;
++import java.util.List;
++import java.util.ArrayList;
+ 
+ public class OrderedDictionary implements OrderedDictionaryADT {
+ 
+@@ -279,6 +281,19 @@
+         return predecessorRecord;
+     }
+ 
++    public List<DogRecord> getAllDogs() {
++        List<DogRecord> records = new ArrayList<>();
++        inOrderTraversal(root, records);
++        return records;
++    }
++
++    private void inOrderTraversal(Node node, List<DogRecord> records) {
++        if (node == null || node.isEmpty()) return;
++        inOrderTraversal(node.getLeftChild(), records);
++        records.add(node.getData());
++        inOrderTraversal(node.getRightChild(), records);
++    }
++
+     // Helper method to find the maximum node in a subtree
+     private DogRecord findMax(Node node) {
+         while (node.hasRightChild()) {
+Index: src/main/java/assignment/dogs/DogsController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package assignment.dogs;\r\n\r\nimport javafx.collections.FXCollections;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.layout.BorderPane;\r\nimport javafx.scene.media.Media;\r\nimport javafx.scene.media.MediaPlayer;\r\nimport javafx.stage.Modality;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\nimport java.util.Scanner;\r\nimport java.util.logging.Level;\r\nimport java.util.logging.Logger;\r\n\r\n/**\r\n *\r\n * @author Ouda\r\n */\r\npublic class DogsController implements Initializable {\r\n\r\n    @FXML\r\n    private MenuBar mainMenu;\r\n    @FXML\r\n    private ImageView image;\r\n    @FXML\r\n    private BorderPane DogPortal;\r\n    @FXML\r\n    private Label title;\r\n    @FXML\r\n    private Label about;\r\n    @FXML\r\n    private Button play;\r\n    @FXML\r\n    private Button pause;\r\n    @FXML\r\n    private ComboBox size;\r\n    @FXML\r\n    private TextField name;\r\n    Media media;\r\n    MediaPlayer player;\r\n    OrderedDictionary database = null;\r\n    DogRecord dog = null;\r\n    int dogSize = 1;\r\n\r\n    @FXML\r\n    public void exit() {\r\n        Stage stage = (Stage) mainMenu.getScene().getWindow();\r\n        stage.close();\r\n    }\r\n\r\n    public void find() {\r\n        String dogName = name.getText().trim();\r\n        if (dogName.isEmpty()) {\r\n            displayAlert(\"Please enter a dog name.\");\r\n            return;\r\n        }\r\n        DataKey key = new DataKey(dogName, dogSize);\r\n        try {\r\n            dog = database.find(key);\r\n            showDog();\r\n        } catch (DictionaryException ex) {\r\n            displayAlert(ex.getMessage());\r\n        }\r\n    }\r\n\r\n    public void delete() {\r\n        DogRecord previousDog = null;\r\n        try {\r\n            previousDog = database.predecessor(dog.getDataKey());\r\n        } catch (DictionaryException ex) {\r\n\r\n        }\r\n        DogRecord nextDog = null;\r\n        try {\r\n            nextDog = database.successor(dog.getDataKey());\r\n        } catch (DictionaryException ex) {\r\n\r\n        }\r\n        DataKey key = dog.getDataKey();\r\n        try {\r\n            database.remove(key);\r\n        } catch (DictionaryException ex) {\r\n            System.out.println(\"Error in delete \"+ ex);\r\n        }\r\n        if (database.isEmpty()) {\r\n            this.DogPortal.setVisible(false);\r\n            displayAlert(\"No more dogs in the database to show\");\r\n        } else {\r\n            if (previousDog != null) {\r\n                dog = previousDog;\r\n                showDog();\r\n            } else if (nextDog != null) {\r\n                dog = nextDog;\r\n                showDog();\r\n            }\r\n        }\r\n    }\r\n\r\n    private void showDog() {\r\n        play.setDisable(false);\r\n        pause.setDisable(true);\r\n        if (player != null) {\r\n            player.stop();\r\n        }\r\n        String img = dog.getImage();\r\n        Image dogImage = new Image(\"file:src/main/resources/assignment/dogs/images/\" + img);\r\n        image.setImage(dogImage);\r\n        title.setText(dog.getDataKey().getDogName());\r\n        about.setText(dog.getAbout());\r\n    }\r\n\r\n    private void displayAlert(String msg) {\r\n        try {\r\n\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"Alert.fxml\"));\r\n            Parent ERROR = loader.load();\r\n            AlertController controller = (AlertController) loader.getController();\r\n\r\n            Scene scene = new Scene(ERROR);\r\n            Stage stage = new Stage();\r\n            stage.setScene(scene);\r\n\r\n            stage.getIcons().add(new Image(\"file:src/main/resources/assignment/dogs/images/UMIcon.png\"));\r\n            stage.setTitle(\"Dictionary Exception\");\r\n            controller.setAlertText(msg);\r\n            stage.initModality(Modality.APPLICATION_MODAL);\r\n            stage.showAndWait();\r\n\r\n        } catch (IOException ex1) {\r\n\r\n        }\r\n    }\r\n\r\n    public void getSize() {\r\n        switch (this.size.getValue().toString()) {\r\n            case \"Small\":\r\n                this.dogSize = 1;\r\n                break;\r\n            case \"Medium\":\r\n                this.dogSize = 2;\r\n                break;\r\n            case \"Large\":\r\n                this.dogSize = 3;\r\n                break;\r\n            default:\r\n                break;\r\n        }\r\n    }\r\n\r\n    // todo\r\n    public void first() {\r\n        try {\r\n            dog = database.smallest();\r\n            showDog();\r\n        } catch (DictionaryException ex) {}\r\n    }\r\n\r\n    // todo\r\n    public void last() {\r\n        try {\r\n            dog = database.largest();\r\n            showDog();\r\n        } catch (DictionaryException ex) {}\r\n    }\r\n\r\n    // todo\r\n    public void next() {\r\n        try {\r\n            dog = database.successor(dog.getDataKey());\r\n            showDog();\r\n        } catch (DictionaryException ex) {}\r\n    }\r\n\r\n    // todo\r\n    public void previous() {\r\n        try {\r\n            dog = database.predecessor(dog.getDataKey());\r\n            showDog();\r\n        } catch (DictionaryException ex) {}\r\n    }\r\n\r\n    public void play() {\r\n        String filename = \"src/main/resources/assignment/dogs/sounds/\" + dog.getSound();\r\n        media = new Media(new File(filename).toURI().toString());\r\n        player = new MediaPlayer(media);\r\n        player.setAutoPlay(true);\r\n        player.setCycleCount(MediaPlayer.INDEFINITE);\r\n        play.setDisable(true);\r\n        pause.setDisable(false);\r\n        player.play();\r\n    }\r\n\r\n    public void pause() {\r\n        play.setDisable(false);\r\n        pause.setDisable(true);\r\n        if (player != null) {\r\n            player.stop();\r\n        }\r\n    }\r\n\r\n    public void loadDictionary() {\r\n        Scanner input;\r\n        int line = 0;\r\n        try {\r\n            String dogName = \"\";\r\n            String description;\r\n            int size = 0;\r\n            input = new Scanner(new File(\"DogsDatabase.txt\"));\r\n            while (input.hasNext()) // read until  end of file\r\n            {\r\n                String data = input.nextLine();\r\n                switch (line % 3) {\r\n                    case 0:\r\n                        size = Integer.parseInt(data);\r\n                        break;\r\n                    case 1:\r\n                        dogName = data;\r\n                        break;\r\n                    default:\r\n                        description = data;\r\n                        database.insert(new DogRecord(new DataKey(dogName, size), description, dogName + \".mp3\", dogName + \".jpg\"));\r\n                        break;\r\n                }\r\n                line++;\r\n            }\r\n        } catch (IOException e) {\r\n            System.out.println(\"There was an error in reading or opening the file: DogsDatabase.txt\");\r\n            System.out.println(e.getMessage());\r\n        } catch (DictionaryException ex) {\r\n            Logger.getLogger(DogsController.class.getName()).log(Level.SEVERE, null, ex);\r\n        }\r\n        this.DogPortal.setVisible(true);\r\n        this.first();\r\n    }\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle rb) {\r\n        database = new OrderedDictionary();\r\n        size.setItems(FXCollections.observableArrayList(\r\n                \"Small\", \"Medium\", \"Large\"\r\n        ));\r\n        size.setValue(\"Small\");\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/assignment/dogs/DogsController.java b/src/main/java/assignment/dogs/DogsController.java
+--- a/src/main/java/assignment/dogs/DogsController.java	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
++++ b/src/main/java/assignment/dogs/DogsController.java	(date 1740721347856)
+@@ -47,12 +47,17 @@
+     private ComboBox size;
+     @FXML
+     private TextField name;
++    @FXML
++    private ComboBox<String> sizeComboBox;
++    @FXML
++    private Label sizeLabel;
+     Media media;
+     MediaPlayer player;
+     OrderedDictionary database = null;
+     DogRecord dog = null;
+     int dogSize = 1;
+ 
++
+     @FXML
+     public void exit() {
+         Stage stage = (Stage) mainMenu.getScene().getWindow();
+@@ -60,17 +65,39 @@
+     }
+ 
+     public void find() {
+-        String dogName = name.getText().trim();
+-        if (dogName.isEmpty()) {
+-            displayAlert("Please enter a dog name.");
+-            return;
++        String searchName = name.getText().trim().toLowerCase();
++        String selectedSize = size.getValue().toString();
++        int sizeValue = 0;
++        if (!selectedSize.equals("Null")) {
++            switch (selectedSize) {
++                case "Small": sizeValue = 1; break;
++                case "Medium": sizeValue = 2; break;
++                case "Large": sizeValue = 3; break;
++            }
+         }
+-        DataKey key = new DataKey(dogName, dogSize);
++
+         try {
+-            dog = database.find(key);
+-            showDog();
+-        } catch (DictionaryException ex) {
+-            displayAlert(ex.getMessage());
++            DogRecord foundDog = null;
++
++            for (DogRecord record : database.getAllDogs()) {
++                DataKey key = record.getDataKey();
++                boolean nameMatches = key.getDogName().toLowerCase().contains(searchName);
++                boolean sizeMatches = (sizeValue == 0) || (key.getDogSize() == sizeValue);
++
++                if (nameMatches && sizeMatches) {
++                    foundDog = record;
++                    break; // Find first match
++                }
++            }
++
++            if (foundDog != null) {
++                dog = foundDog;
++                showDog();
++            } else {
++                displayAlert("There is no record matches the given key");
++            }
++        } catch (Exception e) {
++            displayAlert("Error during search: " + e.getMessage());
+         }
+     }
+ 
+@@ -117,6 +144,7 @@
+         Image dogImage = new Image("file:src/main/resources/assignment/dogs/images/" + img);
+         image.setImage(dogImage);
+         title.setText(dog.getDataKey().getDogName());
++        sizeLabel.setText("Size: " + dog.getDataKey().getDogSize());
+         about.setText(dog.getAbout());
+     }
+ 
+@@ -143,7 +171,7 @@
+     }
+ 
+     public void getSize() {
+-        switch (this.size.getValue().toString()) {
++        switch (sizeComboBox.getValue().toString()) {
+             case "Small":
+                 this.dogSize = 1;
+                 break;
+@@ -247,10 +275,10 @@
+     @Override
+     public void initialize(URL url, ResourceBundle rb) {
+         database = new OrderedDictionary();
+-        size.setItems(FXCollections.observableArrayList(
+-                "Small", "Medium", "Large"
++        sizeComboBox.setItems(FXCollections.observableArrayList(
++                "Null", "Small", "Medium", "Large"
+         ));
+-        size.setValue("Small");
++        sizeComboBox.setValue("Null");
+     }
+ 
+ }
+Index: target/classes/assignment/birds/birds-view.fxml
+===================================================================
+diff --git a/target/classes/assignment/birds/birds-view.fxml b/target/classes/assignment/birds/birds-view.fxml
+deleted file mode 100644
+--- a/target/classes/assignment/birds/birds-view.fxml	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
++++ /dev/null	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
+@@ -1,151 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.geometry.Insets?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.ComboBox?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.Menu?>
+-<?import javafx.scene.control.MenuBar?>
+-<?import javafx.scene.control.MenuItem?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.BorderPane?>
+-<?import javafx.scene.layout.HBox?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.text.Font?>
+-
+-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/main/resources/assignment/birds/images/UMBackground.png&quot;); " xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment.birds.BirdsController">
+-    <top>
+-        <MenuBar fx:id="mainMenu" BorderPane.alignment="CENTER">
+-            <menus>
+-                <Menu mnemonicParsing="false" text="File">
+-                    <items>
+-                        <MenuItem mnemonicParsing="false" onAction="#loadDictionary" text="Fill Dictionary" />
+-                        <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+-                    </items>
+-                </Menu>
+-            </menus>
+-        </MenuBar>
+-    </top>
+-    <center>
+-        <BorderPane fx:id="BirdPortal" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
+-            <BorderPane.margin>
+-                <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
+-            </BorderPane.margin>
+-            <top>
+-                <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="860.0" BorderPane.alignment="CENTER">
+-                    <children>
+-                        <Button fx:id="first" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#first" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: lightgreen;" text="First">
+-                            <HBox.margin>
+-                                <Insets right="10.0" />
+-                            </HBox.margin>
+-                        </Button>
+-                        <Button fx:id="next" minWidth="-Infinity" mnemonicParsing="false" onAction="#next" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: lightgreen;" text="Next">
+-                            <HBox.margin>
+-                                <Insets left="10.0" right="10.0" />
+-                            </HBox.margin>
+-                        </Button>
+-                        <Button fx:id="previous" minWidth="-Infinity" mnemonicParsing="false" onAction="#previous" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: lightgreen;" text="Previous">
+-                            <HBox.margin>
+-                                <Insets left="10.0" right="10.0" />
+-                            </HBox.margin>
+-                        </Button>
+-                        <Button fx:id="last" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#last" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: lightgreen;" text="Last">
+-                            <HBox.margin>
+-                                <Insets left="10.0" right="10.0" />
+-                            </HBox.margin>
+-                        </Button>
+-                    </children>
+-                </HBox>
+-            </top>
+-            <center>
+-                <VBox prefHeight="620.0" prefWidth="868.0" BorderPane.alignment="CENTER">
+-                    <children>
+-                        <Label fx:id="title" prefHeight="27.0" prefWidth="408.0" text="Label" textFill="#0521f5">
+-                            <VBox.margin>
+-                                <Insets bottom="20.0" left="40.0" top="40.0" />
+-                            </VBox.margin>
+-                            <font>
+-                                <Font name="System Bold" size="20.0" />
+-                            </font>
+-
+-                        </Label>
+-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="795.0">
+-                            <VBox.margin>
+-                                <Insets bottom="20.0" left="40.0" right="40.0" />
+-                            </VBox.margin>
+-                            <children>
+-                                <Label fx:id="about" alignment="TOP_LEFT" prefHeight="106.0" prefWidth="646.0" text="Label" textAlignment="JUSTIFY" textFill="#0521f5" wrapText="true">
+-                                    <font>
+-                                        <Font name="System Italic" size="15.0" />
+-                                    </font></Label>
+-                                <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: RED;" text="Delete" textFill="WHITE">
+-                                    <HBox.margin>
+-                                        <Insets left="40.0" top="30.0" />
+-                                    </HBox.margin>
+-                                </Button>
+-                            </children>
+-                        </HBox>
+-                        <HBox prefHeight="354.0" prefWidth="600.0" style="-fx-border-color: black;">
+-                            <VBox.margin>
+-                                <Insets left="40.0" right="40.0" />
+-                            </VBox.margin>
+-                            <children>
+-                                <ImageView fx:id="image" fitHeight="352.0" fitWidth="329.0" pickOnBounds="true">
+-                                    <HBox.margin>
+-                                        <Insets right="70.0" />
+-                                    </HBox.margin></ImageView>
+-                                <Button fx:id="play" mnemonicParsing="false" onAction="#play" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: green;" text="Play" textFill="#f8f7f7">
+-                                    <HBox.margin>
+-                                        <Insets left="60.0" top="130.0" />
+-                                    </HBox.margin>
+-                                    <font>
+-                                        <Font name="System Bold" size="20.0" />
+-                                    </font>
+-                                </Button>
+-                                <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: green;" text="Stop" textFill="#fffdfd">
+-                                    <HBox.margin>
+-                                        <Insets left="50.0" top="130.0" />
+-                                    </HBox.margin>
+-                                    <font>
+-                                        <Font name="System Bold" size="20.0" />
+-                                    </font>
+-                                </Button>
+-                            </children>
+-                        </HBox>
+-                    </children>
+-                </VBox>
+-            </center>
+-            <bottom>
+-                <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+-                    <children>
+-                        <Label prefHeight="21.0" prefWidth="76.0" text="Bird Name" />
+-                        <TextField fx:id="name" prefHeight="29.0" prefWidth="186.0">
+-                            <HBox.margin>
+-                                <Insets left="10.0" />
+-                            </HBox.margin>
+-                        </TextField>
+-                        <Label text="Bird Size">
+-                            <HBox.margin>
+-                                <Insets left="20.0" />
+-                            </HBox.margin>
+-                        </Label>
+-                        <ComboBox fx:id="size" onAction="#getSize" prefHeight="27.0" prefWidth="144.0" visibleRowCount="3">
+-                            <HBox.margin>
+-                                <Insets left="20.0" />
+-                            </HBox.margin>
+-                        </ComboBox>
+-                        <Button fx:id="find" mnemonicParsing="false" onAction="#find" prefHeight="28.0" prefWidth="57.0" style="-fx-background-color: lightblue;" text="Find">
+-                            <HBox.margin>
+-                                <Insets left="10.0" />
+-                            </HBox.margin>
+-                        </Button>
+-                    </children>
+-                    <BorderPane.margin>
+-                        <Insets top="20.0" />
+-                    </BorderPane.margin>
+-                </HBox>
+-            </bottom>
+-        </BorderPane>
+-    </center>
+-</BorderPane>
+Index: target/classes/assignment/birds/Alert.fxml
+===================================================================
+diff --git a/target/classes/assignment/birds/Alert.fxml b/target/classes/assignment/birds/Alert.fxml
+deleted file mode 100644
+--- a/target/classes/assignment/birds/Alert.fxml	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
++++ /dev/null	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.AnchorPane?>
+-
+-<AnchorPane prefHeight="62.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment.birds.AlertController">
+-   <children>
+-      <Label fx:id="error" prefHeight="33.0" prefWidth="361.0" style="-fx-alignment: center;" text="Label" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+-   </children>
+-</AnchorPane>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"71cb5ca6-d660-4760-b680-d6d104d37267\" name=\"Changes\" comment=\"Done remove, successor, predecessor, and isEmpty\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2tbqfsOL64dG4CTR3KriRlcqHti\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Birds.executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.Birds.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/14172/Desktop/CS4050_assigments/assignment2/CS4050/group10_cs4050_assignment2&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.Birds\">\r\n    <configuration name=\"Birds\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"assignment.birds.Birds\" />\r\n      <module name=\"Birds\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Birds\" type=\"MavenRunConfiguration\" factoryName=\"Maven\" nameIsGenerated=\"true\">\r\n      <MavenSettings>\r\n        <option name=\"myGeneralSettings\" />\r\n        <option name=\"myRunnerSettings\" />\r\n        <option name=\"myRunnerParameters\">\r\n          <MavenRunnerParameters>\r\n            <option name=\"cmdOptions\" />\r\n            <option name=\"profiles\">\r\n              <set />\r\n            </option>\r\n            <option name=\"goals\">\r\n              <list />\r\n            </option>\r\n            <option name=\"multimoduleDir\" />\r\n            <option name=\"pomFileName\" />\r\n            <option name=\"profilesMap\">\r\n              <map />\r\n            </option>\r\n            <option name=\"projectsCmdOptionValues\">\r\n              <list />\r\n            </option>\r\n            <option name=\"resolveToWorkspace\" value=\"false\" />\r\n            <option name=\"workingDirPath\" value=\"$PROJECT_DIR$\" />\r\n          </MavenRunnerParameters>\r\n        </option>\r\n      </MavenSettings>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.Birds\" />\r\n      <item itemvalue=\"Maven.Birds\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"71cb5ca6-d660-4760-b680-d6d104d37267\" name=\"Changes\" comment=\"\" />\r\n      <created>1740631228185</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1740631228185</updated>\r\n      <workItem from=\"1740631229319\" duration=\"8350000\" />\r\n      <workItem from=\"1740675522877\" duration=\"3839000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Done remove, successor, predecessor, and isEmpty\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1740636952830</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1740636952830</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Done remove, successor, predecessor, and isEmpty\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1740675643726</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1740675643726</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Done remove, successor, predecessor, and isEmpty\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Done remove, successor, predecessor, and isEmpty\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7d8412f2f7170a7ecb7fe5c00a30f9f8f39233bc)
++++ b/.idea/workspace.xml	(date 1740729961955)
+@@ -4,8 +4,64 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="71cb5ca6-d660-4760-b680-d6d104d37267" name="Changes" comment="Done remove, successor, predecessor, and isEmpty">
++    <list default="true" id="71cb5ca6-d660-4760-b680-d6d104d37267" name="Changes" comment="pushed for rebase">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/dogs/DogsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/dogs/DogsController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/dogs/OrderedDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/dogs/OrderedDictionary.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/assignment/dogs/dogs-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assignment/dogs/dogs-view.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/Alert.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/AlertController.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/BirdRecord.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/Birds.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/BirdsController.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/DataKey.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/DictionaryException.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/Node.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/OrderedDictionary.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/OrderedDictionaryADT.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/birds-view.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/American Flamingo.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Bananaquit.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Common Myna.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Eyebrowed Thrush.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Gilded Flicker.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Indian Peafowl.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Lucifer Hummingbird.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Magnificent Frigatebird.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Mountain Quail.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Mute Swan.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Northern Cardinal.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Northern Wheatear.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Ringed Kingfisher.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Rock Pigeon.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Stonechat.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Thick-billed Parrot.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/UMBackground.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/UMIcon.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/White-winged Crossbill.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Wild Turkey.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Yellow-green Vireo.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/images/Yellow-headed Parrot.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/American Flamingo.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Bananaquit.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Common Myna.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Eyebrowed Thrush.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Gilded Flicker.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Indian Peafowl.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Lucifer Hummingbird.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Magnificent Frigatebird.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Mountain Quail.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Mute Swan.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Northern Cardinal.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Northern Wheatear.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Ringed Kingfisher.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Rock Pigeon.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Stonechat.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Thick-billed Parrot.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/White-winged Crossbill.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Wild Turkey.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Yellow-green Vireo.mp3" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/assignment/birds/sounds/Yellow-headed Parrot.mp3" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -14,7 +70,6 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+-    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 3
+@@ -24,63 +79,34 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.Birds.executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.Birds.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/14172/Desktop/CS4050_assigments/assignment2/CS4050/group10_cs4050_assignment2&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.Birds.executor": "Run",
++    "Application.Dogs.executor": "Run",
++    "Maven.Birds.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "master",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "C:/Users/14172/.m2/repository/org/openjfx/javafx-graphics/17-ea+11/javafx-graphics-17-ea+11-win.jar",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
+-  <component name="RunManager" selected="Application.Birds">
+-    <configuration name="Birds" type="Application" factoryName="Application">
+-      <option name="MAIN_CLASS_NAME" value="assignment.birds.Birds" />
++}]]></component>
++  <component name="RunManager">
++    <configuration name="Dogs" type="Application" factoryName="Application">
++      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-23.0.2" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
++      <option name="MAIN_CLASS_NAME" value="assignment.dogs.Dogs" />
+       <module name="Birds" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Birds" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+-      <MavenSettings>
+-        <option name="myGeneralSettings" />
+-        <option name="myRunnerSettings" />
+-        <option name="myRunnerParameters">
+-          <MavenRunnerParameters>
+-            <option name="cmdOptions" />
+-            <option name="profiles">
+-              <set />
+-            </option>
+-            <option name="goals">
+-              <list />
+-            </option>
+-            <option name="multimoduleDir" />
+-            <option name="pomFileName" />
+-            <option name="profilesMap">
+-              <map />
+-            </option>
+-            <option name="projectsCmdOptionValues">
+-              <list />
+-            </option>
+-            <option name="resolveToWorkspace" value="false" />
+-            <option name="workingDirPath" value="$PROJECT_DIR$" />
+-          </MavenRunnerParameters>
+-        </option>
+-      </MavenSettings>
+-      <method v="2" />
+-    </configuration>
+-    <list>
+-      <item itemvalue="Application.Birds" />
+-      <item itemvalue="Maven.Birds" />
+-    </list>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -91,7 +117,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1740631228185</updated>
+       <workItem from="1740631229319" duration="8350000" />
+-      <workItem from="1740675522877" duration="3839000" />
++      <workItem from="1740675522877" duration="16808000" />
+     </task>
+     <task id="LOCAL-00001" summary="Done remove, successor, predecessor, and isEmpty">
+       <option name="closed" value="true" />
+@@ -109,7 +135,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1740675643726</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="pushed for rebase">
++      <option name="closed" value="true" />
++      <created>1740695590333</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1740695590333</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -128,6 +162,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Done remove, successor, predecessor, and isEmpty" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Done remove, successor, predecessor, and isEmpty" />
++    <MESSAGE value="pushed for rebase" />
++    <option name="LAST_COMMIT_MESSAGE" value="pushed for rebase" />
+   </component>
+ </project>
+\ No newline at end of file
