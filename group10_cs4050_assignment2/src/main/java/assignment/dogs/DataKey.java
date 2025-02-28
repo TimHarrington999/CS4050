@@ -28,11 +28,16 @@ public class DataKey {
 	 */
 	public int compareTo(DataKey k) {
             if (this.getDogSize() == k.getDogSize()) {
-                int compare = this.dogName.compareTo(k.getDogName());
-                if (compare == 0){
+				// first check if the entered string is a partial match
+				boolean completion = this.dogName.toLowerCase().startsWith(k.getDogName().toLowerCase());
+                if (completion) {
                      return 0;
-                } 
-                else if (compare < 0) {
+                }
+
+				// if not a partial match, compute the compare integer
+				int compare = this.dogName.compareTo(k.getDogName());
+
+                if (compare < 0) {
                     return -1;
                 }
             }

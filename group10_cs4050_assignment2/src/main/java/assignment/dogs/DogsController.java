@@ -65,12 +65,39 @@ public class DogsController implements Initializable {
             displayAlert("Please enter a dog name.");
             return;
         }
-        DataKey key = new DataKey(dogName, dogSize);
-        try {
-            dog = database.find(key);
-            showDog();
-        } catch (DictionaryException ex) {
-            displayAlert(ex.getMessage());
+        
+        if(dogSize > 0) { // if we are looking for specific size category
+            DataKey key = new DataKey(dogName, dogSize);
+            try {
+                dog = database.find(key);
+                showDog();
+            } catch (DictionaryException ex) {
+                displayAlert(ex.getMessage());
+            }
+        }
+        else { // if we are looking for any size category
+
+            // start looking from smallest to greatest size dogs
+            DataKey key = new DataKey(dogName, 1); // check small size dogs
+            boolean found = true;
+            try {
+                dog = database.find(key);
+            } catch (DictionaryException ex) {
+                try {
+                    key = new DataKey(dogName, 2); // check medium size dogs
+                    dog = database.find(key);
+                } catch (DictionaryException ex2) {
+                    try {
+                        key = new DataKey(dogName, 3); // check large size dogs
+                        dog = database.find(key);
+                    } catch (DictionaryException ex3) {
+                        displayAlert(ex3.getMessage());
+                        found = false;
+                    }
+                }
+            }
+            if (found)
+                showDog();
         }
     }
 
@@ -154,6 +181,7 @@ public class DogsController implements Initializable {
                 this.dogSize = 3;
                 break;
             default:
+                this.dogSize = 0; // for Null option
                 break;
         }
     }
@@ -248,7 +276,7 @@ public class DogsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         database = new OrderedDictionary();
         size.setItems(FXCollections.observableArrayList(
-                "Small", "Medium", "Large"
+                "Null", "Small", "Medium", "Large"
         ));
         size.setValue("Small");
     }
