@@ -16,9 +16,9 @@ Calm, courageous, and friendly; Bulldogs form strong bonds with their families a
 2
 Beagle
 Curious, friendly, and merry, Beagles are loving and lovable, happy, and companionable—all qualities that make them excellent family dogs.
-2
+3
 Poodle
-Proud, active, and very smart. Poodles come in three sizes, though only the Standard Poodle would classify as a size "medium". They are hypoallergenic and have a distinctive curly coat.
+Proud, active, and very smart. Standard Poodles are hypoallergenic and have a distinctive curly coat, known for their intelligence and versatility.
 3
 Rottweiler
 Confident, fearless, and good-natured. Rottweilers are known for their loyalty and guarding capabilities, making them effective guard dogs as well as loving pet companions.
@@ -28,5 +28,3 @@ Spirited, small, and very affectionate, Yorkshire Terriers are known for their b
 3
 Boxer
 Fun-loving, active, and bright. Boxers are known for their boundless energy and are always up for a good play session. They are extremely loyal to their families.
-
-

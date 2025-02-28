@@ -47,6 +47,8 @@ public class DogsController implements Initializable {
     private ComboBox size;
     @FXML
     private TextField name;
+    @FXML
+    private Label sizeLabel;
     Media media;
     MediaPlayer player;
     OrderedDictionary database = null;
@@ -144,6 +146,7 @@ public class DogsController implements Initializable {
         Image dogImage = new Image("file:src/main/resources/assignment/dogs/images/" + img);
         image.setImage(dogImage);
         title.setText(dog.getDataKey().getDogName());
+        sizeLabel.setText("Size: " + dog.getDataKey().getDogSize());
         about.setText(dog.getAbout());
     }
 

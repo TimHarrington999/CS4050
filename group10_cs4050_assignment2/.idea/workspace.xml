@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71cb5ca6-d660-4760-b680-d6d104d37267" name="Changes" comment="Done remove, successor, predecessor, and isEmpty">
+    <list default="true" id="71cb5ca6-d660-4760-b680-d6d104d37267" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DogsDatabase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DogsDatabase.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/dogs/DogsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/dogs/DogsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignment/dogs/OrderedDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignment/dogs/OrderedDictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assignment/dogs/dogs-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assignment/dogs/dogs-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignment/dogs/DataKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignment/dogs/DataKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignment/dogs/DogsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignment/dogs/DogsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignment/dogs/OrderedDictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignment/dogs/OrderedDictionary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignment/dogs/dogs-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignment/dogs/dogs-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +22,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -24,63 +31,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Birds.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Birds.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/14172/Desktop/CS4050_assigments/assignment2/CS4050/group10_cs4050_assignment2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Birds.executor": "Run",
+    "Application.Dogs.executor": "Run",
+    "Maven.Birds.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/14172/.m2/repository/org/openjfx/javafx-graphics/17-ea+11/javafx-graphics-17-ea+11-win.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.Birds">
-    <configuration name="Birds" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="assignment.birds.Birds" />
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Dogs" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-23.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="assignment.dogs.Dogs" />
       <module name="Birds" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Birds" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list />
-            </option>
-            <option name="multimoduleDir" />
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.Birds" />
-      <item itemvalue="Maven.Birds" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -91,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740631228185</updated>
       <workItem from="1740631229319" duration="8350000" />
-      <workItem from="1740675522877" duration="3839000" />
+      <workItem from="1740675522877" duration="20445000" />
     </task>
     <task id="LOCAL-00001" summary="Done remove, successor, predecessor, and isEmpty">
       <option name="closed" value="true" />
@@ -109,7 +87,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740675643726</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="pushed for rebase">
+      <option name="closed" value="true" />
+      <created>1740695590333</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740695590333</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit">
+      <option name="closed" value="true" />
+      <created>1740730229905</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740730229905</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +122,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done remove, successor, predecessor, and isEmpty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done remove, successor, predecessor, and isEmpty" />
+    <MESSAGE value="pushed for rebase" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>
