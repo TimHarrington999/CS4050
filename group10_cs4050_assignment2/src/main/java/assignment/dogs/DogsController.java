@@ -194,6 +194,8 @@ public class DogsController implements Initializable {
         String filename = "src/main/resources/assignment/dogs/sounds/" + dog.getSound();
         media = new Media(new File(filename).toURI().toString());
         player = new MediaPlayer(media);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
         play.setDisable(true);
         pause.setDisable(false);
         player.play();
