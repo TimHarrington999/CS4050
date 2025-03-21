@@ -164,22 +164,20 @@ public class TreeVisualizerController {
         drawNormalTree(gc, currentTree.getRoot(), treeCanvas.getWidth() / 2, 40, hSpacing, vSpacing, width);
     }
 
-    private void drawNormalTree(GraphicsContext gc, TreeNode<Integer> node, double x, double y, double hSpacing, double vSpacing, int width) {
-        // Fixed RBT color comparison using equals()
+    private void drawNormalTree(GraphicsContext gc, TreeNode<Integer> node, 
+                           double x, double y, double hSpacing, 
+                           double vSpacing, int width) {
+    // Use equals() for color comparison
         if (currentTree.type().equals("RBT")) {
-            if (node.getColor().equals("RED")) {
-                gc.setFill(Color.RED);
-            } else {
-                gc.setFill(Color.BLACK);
-            }
+            gc.setFill(node.getColor().equals("RED") ? Color.RED : Color.BLACK);
         } else {
             gc.setFill(currentTree.color());
         }
-
+    
+        // Rest of the drawing logic remains the same
         gc.fillOval(x - 15, y - 15, 40, 40);
         gc.setFill(Color.GHOSTWHITE);
         gc.fillText(node.getValue().toString(), x - 10, y + 10);
-
         // Draw left subtree
         if (node.getLeft() != null) {
             int leftWidth = getTreeWidth(node.getLeft());
