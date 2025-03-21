@@ -46,16 +46,16 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>, Serializa
 
     private Node insert(Node node, T value) {
         if (node == null) return new Node(value);
-        
+
         int cmp = value.compareTo(node.value);
         if (cmp < 0) node.left = insert(node.left, value);
         else if (cmp > 0) node.right = insert(node.right, value);
-        
+
         // Fix right-leaning reds and balance
         if (isRed(node.right) && !isRed(node.left)) node = rotateLeft(node);
         if (isRed(node.left) && isRed(node.left.left)) node = rotateRight(node);
-        if (isRed(node.left) && isRed(node.right)) flipColors(node);
-        
+        if (isRed(node.left) && isRed(node.right)) flipColorsInsert(node);
+
         return node;
     }
 
@@ -163,27 +163,33 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>, Serializa
         return x;
     }
 
-    private void flipColors(Node h) {
-        h.color = !h.color;
-        h.left.color = !h.left.color;
-        h.right.color = !h.right.color;
+    private void flipColorsInsert(Node h) {
+        h.color = RED;
+        h.left.color = BLACK;
+        h.right.color = BLACK;
+    }
+
+    private void flipColorsDelete(Node h) {
+        h.color = BLACK;
+        h.left.color = RED;
+        h.right.color = RED;
     }
 
     private Node moveRedLeft(Node h) {
-        flipColors(h);
+        flipColorsDelete(h);
         if (isRed(h.right.left)) {
             h.right = rotateRight(h.right);
             h = rotateLeft(h);
-            flipColors(h);
+            flipColorsDelete(h);
         }
         return h;
     }
 
     private Node moveRedRight(Node h) {
-        flipColors(h);
+        flipColorsDelete(h);
         if (isRed(h.left.left)) {
             h = rotateRight(h);
-            flipColors(h);
+            flipColorsDelete(h);
         }
         return h;
     }
@@ -191,7 +197,7 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>, Serializa
     private Node balance(Node h) {
         if (isRed(h.right)) h = rotateLeft(h);
         if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
-        if (isRed(h.left) && isRed(h.right)) flipColors(h);
+        if (isRed(h.left) && isRed(h.right)) flipColorsInsert(h);
         return h;
     }
 
