@@ -75,9 +75,6 @@ public class TreeVisualizerController {
         outputArea.setMinHeight(100);
         outputArea.setStyle("-fx-border-color: black; -fx-background-color: lightgray;");
 
-
-        VBox root = new VBox(10);
-
         view.getChildren().addAll(
                 new HBox(10, new Label("Tree Type:"), treeTypeComboBox),
                 new HBox(10, new Label("Value:"), inputField),
@@ -164,20 +161,20 @@ public class TreeVisualizerController {
 
     private void drawTree(GraphicsContext gc, TreeNode<Integer> node, double x, double y, double hSpacing, double vSpacing, int width) {
         if (node == null) return;
-
-       // if you implement 24Tree, you need to create draw24Tree and all other needed methods
-       drawNormalTree(gc, currentTree.getRoot(), treeCanvas.getWidth() / 2, 40, hSpacing, vSpacing, width);
-
+        drawNormalTree(gc, currentTree.getRoot(), treeCanvas.getWidth() / 2, 40, hSpacing, vSpacing, width);
     }
 
     private void drawNormalTree(GraphicsContext gc, TreeNode<Integer> node, double x, double y, double hSpacing, double vSpacing, int width) {
-        if (currentTree.type() == "RBT")
-            if (node.getColor() == "RED")
+        // Fixed RBT color comparison using equals()
+        if (currentTree.type().equals("RBT")) {
+            if (node.getColor().equals("RED")) {
                 gc.setFill(Color.RED);
-            else
+            } else {
                 gc.setFill(Color.BLACK);
-        else
+            }
+        } else {
             gc.setFill(currentTree.color());
+        }
 
         gc.fillOval(x - 15, y - 15, 40, 40);
         gc.setFill(Color.GHOSTWHITE);
@@ -206,7 +203,6 @@ public class TreeVisualizerController {
         List<TreeNode<Integer>> children = new ArrayList<>();
         if (node.getLeft() != null) children.add(node.getLeft());
         if (node.getRight() != null) children.add(node.getRight());
-        // Add logic here to get additional children if they exist
         return children;
     }
 
@@ -226,8 +222,6 @@ public class TreeVisualizerController {
     }
 
     public void saveTree() {
-        // This is a placeholder implementation. In a real application, you would
-        // implement serialization of the tree structure to a file.
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Tree");
         fileChooser.getExtensionFilters().add(
@@ -237,9 +231,15 @@ public class TreeVisualizerController {
 
         if (file != null) {
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
-                outputArea.appendText("Tree before saving" + currentTree.inorderTraversal() + ".\n");
+                // Add RBT color verification
+                if (currentTree.type().equals("RBT") && currentTree.getRoot() != null) {
+                    outputArea.appendText("Saving RBT with root color: " 
+                        + currentTree.getRoot().getColor() + "\n");
+                }
+                
                 out.writeObject(currentTree);
-                outputArea.appendText("Tree saved successfully.\n");
+                outputArea.appendText("Tree saved successfully. Size: " 
+                    + currentTree.size() + "\n");
             } catch (IOException e) {
                 outputArea.appendText("Error saving tree: " + e.getMessage() + "\n");
                 e.printStackTrace();
@@ -248,8 +248,6 @@ public class TreeVisualizerController {
     }
 
     public void loadTree() {
-        // This is a placeholder implementation. In a real application, you would
-        // implement deserialization of the tree structure from a file.
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Tree");
         fileChooser.getExtensionFilters().add(
@@ -269,31 +267,42 @@ public class TreeVisualizerController {
                 @SuppressWarnings("unchecked")
                 Tree<Integer> loadedTree = (Tree<Integer>) loadedObject;
 
-                // Determine the type of the loaded tree and update the UI
+                // Enhanced type detection
                 String treeType = determineTreeType(loadedTree);
                 if (treeType == null) {
                     outputArea.appendText("Error: Unknown tree type.\n");
                     return;
                 }
 
+                // Validate loaded tree properties
+                outputArea.appendText("Loaded tree metadata:\n");
+                outputArea.appendText("- Type: " + loadedTree.type() + "\n");
+                outputArea.appendText("- Size: " + loadedTree.size() + "\n");
+                if (loadedTree.getRoot() != null) {
+                    outputArea.appendText("- Root color: " 
+                        + loadedTree.getRoot().getColor() + "\n");
+                }
+
+                // Update UI components
                 treeTypeComboBox.setValue(treeType);
                 currentTree = loadedTree;
-
-                // Debug information
-                outputArea.appendText("Tree loaded successfully.\n");
-                outputArea.appendText("Tree type: " + currentTree.type() + "\n");
-                outputArea.appendText("Tree size: " + currentTree.size() + "\n");
-                outputArea.appendText("Tree contents: " + currentTree.inorderTraversal() + "\n");
-
                 updateTreeVisualization();
+                
+                outputArea.appendText("Tree loaded successfully.\n");
+
             } catch (IOException | ClassNotFoundException e) {
                 outputArea.appendText("Error loading tree: " + e.getMessage() + "\n");
-                e.printStackTrace(); // Print stack trace for debugging
+                e.printStackTrace();
             }
         }
     }
 
     private String determineTreeType(Tree<?> tree) {
-        return currentTree.type();
+        for (Map.Entry<String, Tree<Integer>> entry : trees.entrySet()) {
+            if (entry.getValue().getClass().isInstance(tree)) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
 }
