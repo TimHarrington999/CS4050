@@ -54,7 +54,7 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>, Serializa
         // Fix RBT properties
         if (isRed(node.right) && !isRed(node.left)) node = rotateLeft(node);
         if (isRed(node.left) && isRed(node.left.left)) node = rotateRight(node);
-        if (isRed(node.left) && isRed(node.right)) flipColors(node);
+        if (isRed(node.left) && isRed(node.right)) flipColorsInsert(node);
         
         return node;
     }
@@ -164,9 +164,9 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>, Serializa
     }
 
     private void flipColors(Node h) {
-        h.color = !h.color;
-        h.left.color = !h.left.color;
-        h.right.color = !h.right.color;
+        h.color = RED;
+        h.left.color = BLACK;
+        h.right.color = BLACK;
     }
 
     private Node moveRedLeft(Node h) {
